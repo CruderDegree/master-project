@@ -1,0 +1,81 @@
+\chapter{Bundled atomic energies using clustering}
+%% Omskriv
+Using a feature vector $\mathbf{f}_{(i)}$ to describe each atom $i$ in a structure, it is possible to estimate the local energy of each atom in the structure by grouping several local feature vectors linking the number and type of atoms in each group to the global energy of the structure \cite{Meldgaard}.
+
+\section{Structure representation}
+
+As described in \cite{Meldgaard}, molecular structures can be represented using vectors of integers.
+
+A \textit{local} feature vector, $\mathbf{f}$, describes the environment around each atom using a number of functions, of which there can be arbitrarily many
+\begin{equation}
+	\mathbf{f}_i (\mathbf{r}_1, ... , \mathbf{r}_N) = 
+	\begin{bmatrix}
+	f_i^1 \\
+	\vdots \\
+	f_i^L
+	\end{bmatrix}.
+\end{equation}
+Here $i$ is an index over the $N$ atoms in a molecular structure and the local feature vector $\mathbf{f}_i$ is calculated using $L$ functions. Using one or few functions to describe the local feature vector might make different atoms indistinguishable from one another. For example, using a radially symmetrical function to describe the local environment of atom $i$ will not be able distinguish configurations of 2 atoms located a distance $r$ from atom $i$ but with different bond angles \cite{Meldgaard}. In the previous case an angular function would make the configurations distinguishable. \\
+
+% clustering
+The local feature vectors of several structures are then grouped into a number of \textit{clusters}. This is done using either predetermined criteria or, if an unbiased method is desired, using a ML technique called clustering. Once the grouping criteria have been established, it is possible to construct a \textit{global} feature vector of an entire structure from the number of atoms in each cluster for the given structure \cite{Meldgaard} 
+\begin{equation}
+	\mathbf{F}(\mathbf{f}_1, ..., \mathbf{f}_N) = [n_1, ..., n_c, ..., n_C].
+	\label{eq:global_feature_vector}
+\end{equation}
+Here $n_c$ is the number of atoms in cluster $c$ with a total of $C$ clusters.
+
+%% Feature vector (eq 3 i meldgaard)
+
+\section{Local energies}
+
+The energy of a structure is then proposed to be parameterized in the following way \cite{Meldgaard}:
+\begin{equation}
+	E(\mathbf{r}_1, ..., \mathbf{r}_N) = \sum_{i = 1}^{N} \bm{\epsilon}(\mathbf{f}_i) \approx \sum_{i=1}^{N}\bm{\varepsilon}_{c(i)} = \sum_{c=1}^{C} n_c \bm{\varepsilon}_c
+	\label{eq:Local_energies}
+\end{equation}
+
+where $\bm{\epsilon}(\mathbf{f}_i)$ is the local energy of atom $i$, which is defined by its feature vector, $\bm{\varepsilon}_c$ is the approximated energy shared by all atoms in cluster $c$, with $c(i)$ being the cluster index of atom $i$. Using this approximation, the local bundled energies of each cluster can be calculated using the following method \cite{Meldgaard}:
+
+Let $I$ enumerate a total of S structures. For each structure we have the relation
+\begin{equation}
+	E_I = \sum_{c=1}^C n_{Ic} \bm{\varepsilon}_c,
+\end{equation} 
+in which $\bm{\varepsilon_c}$ is an unknown local energy as a function of feature-energy pairs $(\mathbf{F}_I, E_I)$ and $n_{Ic}$ is the number of atoms in cluster $c$. This can be made into a matrix problem by looking at multiple structures
+\begin{equation}
+	\begin{bmatrix}
+	n_{11} & \cdots	& n_{1C} \\
+	\vdots & \ddots & \vdots \\
+	n_{S1} & \cdots & n_{SC} 
+	\end{bmatrix}
+	\begin{bmatrix}
+	\bm{\varepsilon}_1 \\
+	\vdots \\
+	\bm{\varepsilon}_C
+	\end{bmatrix}
+	= \begin{bmatrix}
+	E_1 \\
+	\vdots \\
+	E_S
+	\end{bmatrix},
+	\label{eq:Energy_bundles_matrix}
+\end{equation}
+
+which can be rewritten as
+\begin{equation}
+	\mathbf{X} \bm{\varepsilon} = \mathbf{E}.
+	\label{eq:Matrix_problem_rewritten}
+\end{equation}
+
+The solution to equation \eqref{eq:Matrix_problem_rewritten} can be found by minimizing
+\begin{equation}
+	\mathcal{E} = ||\mathbf{X}\bm{\varepsilon} - \mathbf{E}||^2,
+	\label{eq:Matrix_problem_minimize}
+\end{equation}
+which in some cases cannot be minimized \cite{Meldgaard}. This problem is overcome by introducing the parameter $\lambda > 0$ and using it to alter equation \eqref{eq:Matrix_problem_minimize} using ridge regression. This altered equation is minimized by \cite{Meldgaard}
+\begin{equation}
+	\bm{\varepsilon} = (\mathbf{X}^\text{T}\mathbf{X} + \lambda\mathbf{I})^{-1} \mathbf{X}^\text{T} \mathbf{E},
+\end{equation}
+ with $\mathbf{I}$ being the identity matrix.
+ 
+ \clearpage

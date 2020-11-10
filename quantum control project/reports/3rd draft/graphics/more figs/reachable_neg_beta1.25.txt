@@ -1,0 +1,13 @@
+find limit to optimizable solutions in quatic potential for negative beta
+beta	F
+-30	0.6529
+-20	0.6564
+-10	0.9894
+-9	0.9929
+-8	0.9940
+-7	0.9961
+-6	0.9984
+-5	0.9989
+-3	0.9996
+-1	0.9999
+0	0.9999

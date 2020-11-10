@@ -1,0 +1,10 @@
+\chapter{Motivation}
+
+A method to discourage ASLA from building structures that will have a bad energy reward is desired. This method should be able to, as a minimum, teach the algorithm not to build isolated single atoms away from the main structure. \\
+
+I propose to implement a method able to estimate the energy of a given structure built by ASLA. The method will be based on making a representation of the structure as in \eqref{eq:global_feature_vector} to calculate an estimate of the potential energy of the structure as seen in equation \eqref{eq:Energy_bundles_matrix}. \\
+
+The hope is that this method will provide a computationally cheap estimate of the energy of the structure compared to the expensive DFT calculation. This could then be used to have the ASLA agent build many structures, estimating the approximate energy of each structure and then choosing randomly between the best  e.g. 50\% of the structures built. Thus, with a cheap computation, it would hopefully be possible to sort off many bad structures and instead use the expensive energy calculation on a structure that is worth exploring. \\
+
+One could argue that simply disallowing the agent from building incoherent structures could easily be programmed into the algorithm. While this is true, the point of using reinforcement learning to search for structures is that the algorithm takes no prior knowledge of physics or chemistry before building. It is instead supposed to learn from its prior attempts and use those to improve its future attempts. \\
+\clearpage

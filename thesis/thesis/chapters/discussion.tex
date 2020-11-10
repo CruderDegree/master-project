@@ -1,0 +1,17 @@
+\chapter{Discussion}
+
+One significant drawback of the energy prediction method is its dependency on the structures it is 'trained' with. Due to the way the ridge regression works, (i. e. it is a minimization problem), the ability to predict energies that are outside the range of trained energies seems unlikely. This is a problem, since the first structures built by ASLA all have high energies and a small energy span early on, so the method cannot easily distinguish good from bad structures during the early builds. This problem is illustrated on figure \ref{fig:App_low_energy_predicts} in the appendix. \\
+
+This drawback can possibly explain the lack of performance of the implemented model into ASLA. As can be seen on figure \ref{fig:S-curve}, the $\epsilon$-loop agents are significantly slower than their baseline ASLA counterparts: Almost $10\%$ of baseline agents have found the global minimum structure before the first $\epsilon$-loop agents begin to find it. This could possibly be due to the poor energy prediction filtering away potentially rewarding structures in the early episodes.\\
+
+It should also be noted that the atomic filter's ability to remove structures with isolated atoms is likewise reduced during early episodes, due to the uncertainty in energy prediction and thereby the sorting of structures. When trained using random structures from up to episode 1500, the relative reduction was instead $\SI{66.1 \pm 4.2}{\percent}$. \\
+
+Another source of error regarding energy prediction is the fact that the structure representation doesn't penalize or mark atoms for being unfavorably close to on another. Instead, all atoms within the set bonding range are counted in the same cluster. As seen in a Lennard-Jones potential, too small interatomic distances result in a, potentially large, repulsion rather than attraction between the atoms. This could possibly have been avoided by using another method to represent the atom, as is discussed later. With regards to the performance of the algorithm, this might also explain some of the slow performance seen in the early episodes. In the early episodes, ASLA tends to place atoms too close to one another, and due to the way the structure representation is currently designed, these close atoms are simply counted as bonds, which when estimating the $\varepsilon$ of several structures, will result in clusters with many neighbors having a high energy, making it unfavorable to choose structures with many bonds in the filter.\\
+
+A particular example of another representation would be to describe each atom in a structure by the sum of distances to each other atom of each type in the structure. For a number of structures, these features could then be clustered using some clustering algorithm (e.g. K-means). This approach would be much more general than the current method of guessing that atomic bonds are good molecular descriptors.\\
+
+
+%% Måske filtreringen kunne laves om til at fordele sandsynligheden efter en logistisk funktion.
+
+
+ 

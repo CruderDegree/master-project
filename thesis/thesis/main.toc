@@ -1,0 +1,27 @@
+\select@language {danish}
+\select@language {english}
+\select@language {danish}
+\select@language {english}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Convolutional Neural Networks}{1}
+\contentsline {section}{\numberline {1.2}Reinforcement Learning}{1}
+\contentsline {chapter}{\chapternumberline {2}ASLA}{2}
+\contentsline {section}{\numberline {2.1}Building phase}{2}
+\contentsline {section}{\numberline {2.2}Evaluation Phase}{4}
+\contentsline {section}{\numberline {2.3}Replay buffer}{4}
+\contentsline {section}{\numberline {2.4}Training phase}{5}
+\contentsline {chapter}{\chapternumberline {3}Bundled atomic energies using clustering}{5}
+\contentsline {section}{\numberline {3.1}Structure representation}{6}
+\contentsline {section}{\numberline {3.2}Local energies}{6}
+\contentsline {chapter}{\chapternumberline {4}Motivation}{8}
+\contentsline {chapter}{\chapternumberline {5}Clustering by atomic bonds}{9}
+\contentsline {section}{\numberline {5.1}Structure representation}{9}
+\contentsline {section}{\numberline {5.2}Results}{11}
+\contentsline {chapter}{\chapternumberline {6}Implementation into ASLA}{14}
+\contentsline {section}{\numberline {6.1}Hyperparameter search}{14}
+\contentsline {section}{\numberline {6.2}Method}{15}
+\contentsline {section}{\numberline {6.3}Results}{16}
+\contentsline {chapter}{\chapternumberline {7}Discussion}{17}
+\contentsline {chapter}{\chapternumberline {8}Conclusion}{18}
+\contentsline {chapter}{Bibliography}{20}
+\contentsline {chapter}{Appendix - Extra figures}{22}

@@ -1,0 +1,65 @@
+\documentclass[a4paper, 11pt, oneside, onecolumn, openany]{memoir} 
+% Sets document type as memoir with A4 size, writes in 1 column and made to be printet on only one side of the paper. Chapters can begin at any page
+
+\usepackage[english, danish]{babel} % English and danish text symbols
+\usepackage[utf8]{inputenc} 
+\usepackage{lipsum} % Filler
+\usepackage{graphicx} % Allows figures
+\usepackage{lipsum}
+\usepackage{pdfpages}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage{bm} % Bold face math by using \bm{ math expression }
+\usepackage{caption} % More options with captions. e.g. make captions wider
+\usepackage{url}
+
+%%% Styling
+\renewcommand{\baselinestretch}{1.33} % Linjeafstand
+\chapterstyle{tandh} %% Chapterstyle
+\gdef\clearforchapter{} % Dont clear page before chapter
+
+% Make pagestyle - Show page number in center footer on any page
+\nouppercaseheads
+\makepagestyle{mystyle}
+\makeevenhead{mystyle}{}{}{}
+\makeoddhead{mystyle}{}{}{}
+\makeevenfoot{mystyle}{}\thepage{}{}
+\makeoddfoot{mystyle}{}{\thepage}{}
+\pagestyle{mystyle}
+
+\begin{document}
+\includepdf{frontpage.pdf} % Loads front page from other pdf [frontpage.tex]
+
+% Frontmatter
+\frontmatter
+\input{chapters/abstract.tex}			% Abstract in danish and english
+%\chapter*{}								% No chapter for frontmatter
+\input{chapters/acknowledgements.tex}	% Acknowledgements and preface
+\tableofcontents*						% Table of Contents
+
+% Mainmatter
+\mainmatter
+\input{chapters/introduction.tex}
+\input{chapters/ASLA.tex}
+\input{chapters/bundled_energies.tex}
+\input{chapters/motivation.tex}
+\input{chapters/structure_evaluation}
+\input{chapters/ASLA_implementation.tex}
+\input{chapters/discussion.tex}
+\input{chapters/conclusion.tex}
+
+% Backmatter
+\backmatter
+\bibliographystyle{unsrt}
+\bibliography{bibtex/Meldgaard.bib,bibtex/henrik_progress_report.bib,bibtex/Atomic_structure_learning.bib,bibtex/intro_sources}
+
+\appendix
+% Change figure numbers
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+
+\input{chapters/fig_appendix.tex}
+
+
+\end{document}

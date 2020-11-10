@@ -1,0 +1,19 @@
+\selectlanguage{english}%
+\begin{abstract}
+
+The aim of this project is to create a method that can be used by the structure searching algorithm ASLA. This method should encourage building more coherent molecular structures and improve the performance of the algorithm. ASLA uses reinforcement learning to determine where to place a number of atoms in order to minimize the potential energy of the structure. In this project, ASLA must place 3 of both $C$- and $H$-atoms with 3 of both already placed as a template. The method designed uses the bonds of each atom in a structure to approximate its local energy, using it to calculate the global energy of the structure. The method proves successful at calculating expected local features of structures. This makes it possible to link the global feature vectors to the known DFT energy of the structure through a minimization problem using ridge regression. The method is able to predict most structure energies to within a tolerable degree: Predicting the energies of 500 random structures produced an $R^2$-value of $0.83$ when comparing the estimate to the DFT energy. The energy prediction was implemented in a filter, which reduced the relative number of structures with isolated atoms to choose among with $\SI{72.3 \pm 5.8}{\percent}$. The filter was then implemented into a new build-policy for ASLA and the performance of the altered algorithm was compared to its non-altered counterpart. The results indicate that the method significantly slows or hinders ASLAs structure search during early episodes, while failing to improve beyond the baseline performance during the remaining run time.
+\end{abstract}
+
+\newpage
+
+\selectlanguage{danish}%
+\begin{abstract}
+
+Formålet med denne opgave er at skabe en metode, som kan bruges af struktursøgnings algoritmen ASLA. Metoden skal opfordre ASLA til at bygge mere sammenhængende strukturer og forbedre dens resultater. ASLA bruger \textit{reinforcement learning} til at bestemme, hvor en række atomer skal placeres for, at de minimerer strukturens potentielle energi. I dette problem skal ASLA placere 3 $C$-atomer og 3 $H$-atomer, mens at yderligere 3 af hver slags allerede er placeret som en skabelon. Den designede metode bruger hvert atoms bindinger til at approksimere den lokale energi af atomet, som da bruges til at beregne den globale energi af strukturen. Metoden viser sig at virke til at bestemme de forventede lokale \textit{features} af strukturer. Derfra er det muligt at udregne en sammenhæng mellem den globale \textit{feature} vektor for en struktur og dennes udregnede \textit{DFT} energi vha. et minimeringsværktøj kaldet \textit{ridge regression}. Denne sammenhæng viser, at det er muligt at forudsige energien af de fleste strukturer ASLA bygger, indenfor en tolerabel usikkerhed: Forudsigelsen af 500 tilfældige strukturers energi gav en $R^2$-værdi på $0.83$ når estimatet blev sammenlignet med \textit{DFT}-energien. Denne energiforudsigelsesevne blev implementeret i et filter, som reducerede det relative antal strukturer med isolerede atomer, der kunne vælges imellem med $\SI{72.3 \pm 5.8}{\percent}$. Dette filter blev da implementeret i ASLA som en ny bygge-politik og ydeevnen af denne ændrede algoritme blev derefter sammenlignet med dens uændrede modstykke. Resultatet indikerer, at metoden sænker eller hindrer ASLAs struktursøgning signifikant i de tidlige episoder, mens at dens ydeevne ikke formår at slå den uændrede algoritmes over den resterende køretid.
+	
+\end{abstract}
+
+\selectlanguage{english}%
+
+\newpage
+
