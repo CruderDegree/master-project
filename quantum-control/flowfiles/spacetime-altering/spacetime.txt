@@ -1,0 +1,2 @@
+This folder contains flowfiles for altering the grid-spacing of points
+and for calculation of the time it takes to simulate flowfiles in different resolutions
