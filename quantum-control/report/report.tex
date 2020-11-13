@@ -46,12 +46,7 @@
 
 %% Tikz stuff
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows}
-
-% Tikz shapes
-\tikzstyle{component} = [rectangle, rounded corners, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=red!30]
-\tikzstyle{input} = [rectangle, rounded corners, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=green!30]
-
+\usetikzlibrary{shapes.geometric, arrows, positioning}
 
 \begin{document}
 
@@ -134,7 +129,7 @@ which contains a nonlinear term with front factor $\beta$ compared to the Hamilt
 The problem was explored by adjusting $\beta$, the control final time $T$, the control function $u(t)$ as well as working with different trapping potentials.
 
 Depending on the sign of $\beta$ in \eqref{eq:Hbec} the interatomic interaction will be either attractive ($\beta<0$) or repulsive ($\beta>0$) and based on this, we would expect the state to respectively shrink or grow in size as a result of this interaction. This is also what can be seen on Fig. \ref{fig:BECgroundstate}, where the ground state is plotted as a function of $\beta$.
-
+%TODO x-lim = -0.8 to 0.8
 \begin{figure}[h]
 	\includegraphics[width=\columnwidth]{graphics/GroundstateBeta.pdf}
 	\caption{The groundstate of a BEC in a quartic trapping potential, shown as a function of the atomic interaction parameter $\beta$ in \ref{eq:Hbec}.}
@@ -142,7 +137,7 @@ Depending on the sign of $\beta$ in \eqref{eq:Hbec} the interatomic interaction 
 \end{figure}
 
 The 1st excited state likewise shares this property, but since this state is already larger than the ground state, its size is not altered by $\beta$ to the same extend. This is shown on figure \ref{fig:BECexcitedstate}.
-
+%TODO x-lim = -0.8 to 0.8
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/ExcitedstateBeta.pdf}
 	\caption{The 1st excited state of a BEC in a quartic trapping potential. This is the desired state which we attempt to transform the initial ground state into.}
@@ -163,13 +158,36 @@ Also a flowchart describing the workflow would be nice.
 Below is a tikzstyle picture
 \begin{figure}
 	\centering
-	\begin{tikzpicture}
-		\node (psi0) [component] {$\psi_0$};
-		\node (psiD) [component, right of=psi0] {$\psi_D$};
-		\node (H) [component, right of=psiD] {$\hat{H}_{GPE}$};	
-		\node (V) [input, below of=psi0] {$\hat{V}$};
-		\node (beta) [input, right of=V] {$\beta$};
-		\node (u0) [input, right of=beta] {$u_0(t)$};
+	\begin{tikzpicture}[
+		system_setup/.style={rectangle, rounded corners, draw=black, fill=black!10, inner sep=20pt},
+		inputs/.style = {rectangle, rounded corners, draw=black, fill=red!10, inner sep=10pt},
+		input/.style = {rectangle, rounded corners, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=green!30, node distance = 0.5cm},
+		system/.style = {rectangle, rounded corners, draw=black, fill=purple!10},
+		system_comp/.style = {rectangle, rounded corners, draw=black, fill=orange!30, text centered, node distance = 0.5cm}
+		]
+		\node [system_setup] (SystemSetup) {
+			\begin{tikzpicture}
+				\node [inputs] (Inputs) {
+					\begin{tikzpicture}
+						\node (V) [input] {$\hat{V}$};
+						\node (beta) [input, below of=V] {$\beta$};
+						\node (u0) [input, below of=beta] {$u_0(t)$};
+					\end{tikzpicture}
+				};
+				\node [black, below] at (Inputs.north) {Inputs};	
+				
+				\node [system, right=of Inputs] (System) {
+					\begin{tikzpicture}
+						\node (H) [system_comp] {$\hat{H}_{GPE}$};
+						\node (psi0) [system_comp, below of=beta] {$\psi_0$};
+					\end{tikzpicture}
+				};
+				
+				\node [black, below] at (System.north) {System};
+			\end{tikzpicture}
+		};
+		
+		\node [black, below] at (SystemSetup.north) {System Setup};
 	\end{tikzpicture}
 	\caption{Work flow in Quantum Composer}
 	\label{fig:flowdiagram}
