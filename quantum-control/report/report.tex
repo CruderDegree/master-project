@@ -58,7 +58,7 @@
 %\preprint{}
 
 %Title of paper
-\title{Quantum Control report}
+\title{Quantum control report}
 
 % repeat the \author .. \affiliation  etc. as needed
 % \email, \thanks, \homepage, \altaffiliation all apply to the current
@@ -152,7 +152,7 @@ where $F(\vec{u}_{k+1}) \geq F(\vec{u}_{k})$.
 
 This process is continued until some convergence criterium is fulfilled, e.g. a target threshold $F(\vec{u}_{k}) \geq F_{target}$ or a maximum number of iterations $k \leq N$.
 
-\section{Quantum Composer}
+\subsection{Quantum Composer}
 The plan is here to add Screenshots about how Composer is used in this project.
 Also a flowchart describing the workflow would be nice.
 Below is a tikzstyle picture
@@ -193,12 +193,36 @@ Below is a tikzstyle picture
 	\label{fig:flowdiagram}
 \end{figure}
 
+%TODO Include how to do conversions between time, energy, space etc.
 
 \section{\label{sec:results}Results}
-%This should be the bulk of your report. Describe your results. Any details (not included in the background) that are necessary to understand what you did should be here.
-
-%You can include citations with the \verb+\cite{}+ command. You will need a \verb+.bib+ file like the one included with this template. See the bibliography file for information on how to cite an article \cite{Schmiedmayer2014}, a thesis \cite{HenrikThesis}, or a book \cite{PethickSmith}. If you do not include any citations, comment the \verb+\bibliography{}+ command below.
 \subsection{\label{subsec:numericalLimitations} Numerical limitations}
+\subsubsection{Spatial resolution \& performance}
+% Compare grid resolution errors
+One obvious source of numerical inaccuracies is the resolution of the quantized Hilbert space one uses. Throughout the report, the spatial grid was divided into $256$ points. We can compare this resolution to other resolutions by calculating the difference between a high resolution wave function with $1024$ points and lower resolution wave functions. This difference between the different resolutions for the ground state and first excited state can be seen on the Fig. \ref{fig:groundstateGrid} and Fig. \ref{fig:excitedstateGrid}, respectively. As can be seen on the figures we find that the lower the resolution of a wave function is, the bigger the difference between that wave function and a higher resolution one. \\
+\begin{figure}
+	\includegraphics[width=\columnwidth]{graphics/GroundstateGrid.pdf}
+	\caption{Difference between different resolutions of the initial wave function compared to a high resolution wave function.}
+	\label{fig:groundstateGrid}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{graphics/ExcitedstateGrid.pdf}
+	\caption{Difference between different resolutions of the desired wave function compared to the $1024$ point calculated target wave function.}
+	\label{fig:excitedstateGrid}
+\end{figure}
+
+% Relate this to time consumption to explain why we dont do use the 1024 size but instead the 256
+After reading the paragraph above, one would think that it would always be better to use as high spatial resolution of a given system as possible. This would of course be true if we had access to unlimited computational power. We instead have to balance the desire for a high spatial resolution and more accurate wave functions against the increased time it takes to do calculations for a higher dimension Hilbert space. As an example of this increased calculation time, a system was set up the following parameters: $\beta = 4$, $V(x,u(t)) = a(x-u(t))^2 + b(x-u(t))^4$ with $a=50$, $b=128$, $u(t)=0.5 \cos(2\pi t/T)$ and $T=0.8 \tau \approx 1.09$ ms. This system was then optimized for 100 iterations using \proc{Grape} before the system was simulated with the optimized control function. The results can be seen on Fig. \ref{fig:performanceTime}. From this result we can reassure ourselves that choosing a grid resolution of $256$ points gives us a high accuracy compared to lower resolutions while also keeping performance time lower than for higher resolutions, where the performance time increases more rapidly.
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{graphics/PerformanceTime.pdf}
+	\caption{The time it takes for Quantum Composer to solve the same problem as a function of the spatial grid resolution.}
+	\label{fig:performanceTime}
+\end{figure}
+
+%TODO Is this also the case for time-step resolution? 501 is used now, but in the QM2 paper it was 1001? Plot for 250, 500, 750, 1000, 1250? Here we would also encounter a problem when we take a too large step with numerical inaccuracy, thus small step --> better approx
+
 In order to reach accurate results when making these computations, one has to ensure that the states that are analyzed are described within acceptable numerical accuracy. We can ensure that we are working with the ground state as our initial state in Composer by calculating the variance of our initial state wrt. the Hamiltonian
 \begin{equation}
 	\text{Var}(\psi)_H = \langle \psi \mid \hat{H}^2 \mid \psi \rangle - (\langle \psi \mid \hat{H} \mid \psi \rangle)^2
@@ -223,7 +247,7 @@ Despite not being able to calculate the second excited state of a BEC, it was al
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/Energylevels.pdf}
-	\caption{Calculated energies of the ground and first excited state of a BEC in a quartic potential as a function of $\beta$.}
+	\caption{Calculated energies of the first 3 energy eigenstates of a BEC in a quatic potential as a function of $\beta$.}
 	\label{fig:energyLevels}
 \end{figure}
 
