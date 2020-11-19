@@ -123,7 +123,7 @@ where $p$ is the momentum operator and $m$ is the particle mass. Likewise, the H
 	H_{GPE} = \frac{p^2}{2m} + V(x,u(t)) + \beta |\psi(x,t)|^2
 	\label{eq:Hbec}
 \end{equation}
-which contains a nonlinear term with front factor $\beta$ compared to the Hamiltonian for a single particle. This term represents the interatomic interaction that takes place in a BEC. This factor is both dependent on the s-wave scattering length $a_{\text{1D}}^s$ as well as the number of atoms contained in the BEC $N$ \cite{Schmiedmayer}. It is however, also possible to tune this interaction parameter using Feshbach a resonance \cite{Feshbach}.
+which contains a nonlinear term with front factor $\beta$ compared to the Hamiltonian for a single particle. This term represents the interatomic interaction that takes place in a BEC. This factor is both dependent on the s-wave scattering length $a_{\text{1D}}^s$ as well as the number of atoms contained in the BEC $N$ \cite{Schmiedmayer}. It is however, also possible to tune this interaction parameter using a Feshbach resonance \cite{Feshbach}.
 
 
 The problem was explored by adjusting $\beta$, the control final time $T$, the control function $u(t)$ as well as working with different trapping potentials.
@@ -144,6 +144,7 @@ The 1st excited state likewise shares this property, but since this state is alr
 	\label{fig:BECexcitedstate}
 \end{figure}
 
+%TODO Explain parameters that Grape uses, gamma, sigma, etc
 It is possible to optimize a control function to, in many cases, reach even higher fidelity than the initial function. In this problem the optimization algorithm $\proc{Grape}$ is used. $\proc{Grape}$ takes an input control function (a "seed"), and calculates the gradient of $F$ with respect to each point of the control function on the discretized time scale $\vec{\nabla}_{\vec{u}}F(\vec{u})$, such that $\vec{u} = (u(t_0), u(t_1) ... \,, u(T))$. When this calculation is done, $\proc{Grape}$ takes a step of size $\alpha_k$ such that the new discretized control function becomes
 \begin{equation}
 	\vec{u}_{k+1} = \vec{u}_{k} + \alpha_k \vec{\nabla}_{\vec{u}}F(\vec{u}_k)
@@ -153,47 +154,90 @@ where $F(\vec{u}_{k+1}) \geq F(\vec{u}_{k})$.
 This process is continued until some convergence criterium is fulfilled, e.g. a target threshold $F(\vec{u}_{k}) \geq F_{target}$ or a maximum number of iterations $k \leq N$.
 
 \subsection{Quantum Composer}
-The plan is here to add Screenshots about how Composer is used in this project.
-Also a flowchart describing the workflow would be nice.
-Below is a tikzstyle picture
+%TODO How Composer was used in this challenge
+Quantum Composer is a tool for visualizing the quantum mechanics of a system, either statically or as the system evolves in time. To do this, one combines building blocks (nodes) containing the various components (e.g. a potential $\hat{V}$) to build new nodes (e.g. a wave function $\Psi$). Some of these nodes can be visualized on graphs to show f.x. a wave function norm squared and can be evolved over time using a time node. The use of Composer in this report can be grouped into three overall groups: System setup, \proc{Grape} optimization and simulation. These groups and their components have been visualized on Fig. \ref{fig:flowdiagram}. 
+
+% TikzPicture figure
 \begin{figure}
 	\centering
 	\begin{tikzpicture}[
-		system_setup/.style={rectangle, rounded corners, draw=black, fill=black!10, inner sep=20pt},
-		inputs/.style = {rectangle, rounded corners, draw=black, fill=red!10, inner sep=10pt},
-		input/.style = {rectangle, rounded corners, minimum width=1cm, minimum height=1cm, text centered, draw=black, fill=green!30, node distance = 0.5cm},
-		system/.style = {rectangle, rounded corners, draw=black, fill=purple!10},
-		system_comp/.style = {rectangle, rounded corners, draw=black, fill=orange!30, text centered, node distance = 0.5cm}
+		setup/.style={rectangle, rounded corners, draw=black, fill=black!10, inner sep=5pt},
+		input/.style = {rectangle, rounded corners,text centered, draw=black, fill=green!30, node distance = 1.5cm, minimum height = 1cm, minimum width = 1cm},
+		system/.style = {rectangle, rounded corners, draw=black, fill=blue!10, node distance = 1.5 cm, minimum height = 1cm, minimum width = 1cm},
+		grape/.style = {rectangle, rounded corners, draw=black, fill = orange!10, inner sep = 5pt},
+		grapeparam/.style = {rectangle, rounded corners, draw=black, fill=purple!40, node distance = 0.5 cm, minimum height = 1cm, minimum width = 1cm},
+		simulation/.style = {rectangle, rounded corners, draw=black, fill = blue!20, inner sep = 5pt, minimum width = 2.5 cm},
+		simulationparam/.style = {rectangle, rounded corners, draw=black, fill=yellow!40, node distance = 0.5 cm, minimum height = 1cm, minimum width = 1cm},
 		]
-		\node [system_setup] (SystemSetup) {
+		\node [setup] (Setup) {
 			\begin{tikzpicture}
-				\node [inputs] (Inputs) {
-					\begin{tikzpicture}
-						\node (V) [input] {$\hat{V}$};
-						\node (beta) [input, below of=V] {$\beta$};
-						\node (u0) [input, below of=beta] {$u_0(t)$};
-					\end{tikzpicture}
-				};
-				\node [black, below] at (Inputs.north) {Inputs};	
-				
-				\node [system, right=of Inputs] (System) {
-					\begin{tikzpicture}
-						\node (H) [system_comp] {$\hat{H}_{GPE}$};
-						\node (psi0) [system_comp, below of=beta] {$\psi_0$};
-					\end{tikzpicture}
-				};
-				
-				\node [black, below] at (System.north) {System};
+				\node (topLeft) [black] {};
+				\node (V) [input, below of= topLeft] {$\hat{V}$};
+				\node (beta) [input, below of=V] {$\beta$};
+				\node (u0) [input, below of=beta] {$u_0(t)$};
+				\node (T) [input, below of=u0] {$T$};				
+				\node (x) [input, below of=T] {$\hat{x}$};				
+				\node (H) [system, right of=V] {$\hat{H}_{GPE}$};
+				\node (psi0) [system, right of= beta] {$\psi_0$};
+				\node (psi0) [system, right of= u0] {$\psi_D$};
 			\end{tikzpicture}
 		};
+		\node [black, below] at (Setup.north) {\Large Setup system};
 		
-		\node [black, below] at (SystemSetup.north) {System Setup};
+		\node [black, right=of Setup] {
+			\begin{tikzpicture}
+				\node [grape, right=of Setup] (Grape) {
+					\begin{tikzpicture}
+						\node (grapetopleft) [black] {};
+						\node (grapetopright) [black, right of = grapetopleft] {};
+						\node [grapeparam, below=of grapetopleft] (N) {$N$};
+						\node [grapeparam, below=of N] (Gamma) {$\gamma$};
+						\node [grapeparam, right=of N] (Sigma) {$\sigma$};
+						\node [grapeparam, right=of Gamma] (FT) {$F_{T}$};
+					\end{tikzpicture}
+				};
+				\node [black, below] at (Grape.north) {\Large \proc{Grape}};
+				
+				\node [simulation, below=of Grape] (Simulation) {
+					\begin{tikzpicture}
+						\node (simulationtopleft) [black] {};
+						\node [simulationparam, below=of simulationtopleft] (Stateplot) {$|\psi|^2(t)$};
+						\node [simulationparam, below=of Stateplot] (F) {$F(t)$};
+					\end{tikzpicture}
+				};
+				\node [black, below] at (Simulation.north) {\Large Simulation};
+			\end{tikzpicture}
+			
+		};
 	\end{tikzpicture}
 	\caption{Work flow in Quantum Composer}
 	\label{fig:flowdiagram}
 \end{figure}
 
+
+
+To simulate a quantum control problem, one first has to set up a system that describes the problem. This includes choosing boundaries of the Hilbert space and the distance between 2 points in this space. It also includes things like describing the potential of the system, the time interval $(t_0, T)$ and an initial control function $u_0(t)$. From these fundamentals, it is then possible to build the Hamiltonian of the system and from that we can create wave functions, in particular $\psi_0$ and $\psi_D$ that are relevant for a quantum control problem.
+
+
+It is then possible to optimize the initial control function using \proc{Grape}. The optimization procedure requires a number of arguments, some optional ($\gamma$ and $\sigma$), others required ($N$ and $F_T$). The control function will then be updated until a convergence criteria is reached, after which \proc{Grape} outputs the optimized control function. In Composer it is possible to map the fidelity of the current and previous control iterations to show how fidelity improves as \proc{Grape} iterates. Likewise, it is also possible to plot the initial and current control function to see how they differ. A screenshot from Composer that shows how this optimization procedure is set up can be seen on Fig. \ref{fig:composerScreens}.
+
+%TODO Forklarende tekst på billede
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{graphics/composerScreens/grape.png}
+	\caption{Screenshot from Quantum Composer showing how a quantum control problem can be optimized using \proc{Grape}.}
+	%TODO Kommenter på forskellige grafer og hvad de viser
+	\label{fig:composerScreens}
+\end{figure}
+
+
+When the system is simulated, it is possible to analyze the wave function at the current point in time. Thus we are able to calculate and visualize different results from our simulation as they are being simulated. This includes calculating the fidelity $F$ as a function of time, but we can also plot how our wave function evolves in time by mapping out $|\psi|^2(x,t)$. When the simulation is finished, the final fidelity $F(T)$ can be recorded.
+
 %TODO Include how to do conversions between time, energy, space etc.
+\subsubsection{Unit conversion}
+
+In Composer units are scaled such that $\hbar = m = 1$. This means that we have unit lengths as $\chi = 1 \mu m$, $\tau \approx 1.36 \text{ms}$ and $\epsilon = 1 $ B O I
+
 
 \section{\label{sec:results}Results}
 \subsection{\label{subsec:numericalLimitations} Numerical limitations}
@@ -206,6 +250,7 @@ One obvious source of numerical inaccuracies is the resolution of the quantized 
 	\label{fig:groundstateGrid}
 \end{figure}
 
+%TODO Leave this figure out?
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/ExcitedstateGrid.pdf}
 	\caption{Difference between different resolutions of the desired wave function compared to the $1024$ point calculated target wave function.}
@@ -213,7 +258,7 @@ One obvious source of numerical inaccuracies is the resolution of the quantized 
 \end{figure}
 
 % Relate this to time consumption to explain why we dont do use the 1024 size but instead the 256
-After reading the paragraph above, one would think that it would always be better to use as high spatial resolution of a given system as possible. This would of course be true if we had access to unlimited computational power. We instead have to balance the desire for a high spatial resolution and more accurate wave functions against the increased time it takes to do calculations for a higher dimension Hilbert space. As an example of this increased calculation time, a system was set up the following parameters: $\beta = 4$, $V(x,u(t)) = a(x-u(t))^2 + b(x-u(t))^4$ with $a=50$, $b=128$, $u(t)=0.5 \cos(2\pi t/T)$ and $T=0.8 \tau \approx 1.09$ ms. This system was then optimized for 100 iterations using \proc{Grape} before the system was simulated with the optimized control function. The results can be seen on Fig. \ref{fig:performanceTime}. From this result we can reassure ourselves that choosing a grid resolution of $256$ points gives us a high accuracy compared to lower resolutions while also keeping performance time lower than for higher resolutions, where the performance time increases more rapidly.
+Considering this, one would think that it would always be better to use as high spatial resolution of a given system as possible. This would of course be true if we had access to unlimited computational power. We instead have to balance the desire for a high spatial resolution and more accurate wave functions against the increased time it takes to do calculations for a higher dimension Hilbert space. As an example of this increased calculation time, a system was set up the following parameters: $\beta = 4$, $V(x,u(t)) = a(x-u(t))^2 + b(x-u(t))^4$ with $a=50$, $b=128$, $u(t)=0.5 \cos(2\pi t/T)$ and $T=0.8 \tau \approx 1.09$ ms. This system was then optimized for 100 iterations using \proc{Grape} before the system was simulated with the optimized control function. The results can be seen on Fig. \ref{fig:performanceTime}. From this result we can reassure ourselves that choosing a grid resolution of $256$ points gives us a high accuracy compared to lower resolutions while also keeping performance time lower than for higher resolutions, where the performance time increases more rapidly.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/PerformanceTime.pdf}
