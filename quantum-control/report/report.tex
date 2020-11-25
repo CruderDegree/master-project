@@ -224,7 +224,7 @@ It is then possible to optimize the initial control function using \proc{Grape}.
 %TODO Forklarende tekst på billede
 \begin{figure}
 	\centering
-	\includegraphics[width=\columnwidth]{graphics/composerScreens/grape.png}
+	\includegraphics[width=\columnwidth]{graphics/composerScreens/grape_highlight.png}
 	\caption{Screenshot from Quantum Composer showing how a quantum control problem can be optimized using \proc{Grape}.}
 	%TODO Kommenter på forskellige grafer og hvad de viser
 	\label{fig:composerScreens}
@@ -234,7 +234,13 @@ It is then possible to optimize the initial control function using \proc{Grape}.
 When the system is simulated, it is possible to analyze the wave function at the current point in time. Thus we are able to calculate and visualize different results from our simulation as they are being simulated. This includes calculating the fidelity $F$ as a function of time, but we can also plot how our wave function evolves in time by mapping out $|\psi|^2(x,t)$. When the simulation is finished, the final fidelity $F(T)$ can be recorded.
 
 %TODO Include how to do conversions between time, energy, space etc.
-\subsubsection{Unit conversion}
+\subsubsection{Units}
+
+In numerical problems it is useful to rescale units to work around the problems of finite precision memory. Thus, it is convenient to rescale things like time, space and energy like so 
+\begin{equation}
+	t_{SI} = t \tau, \quad  x_{SI} = x\chi, \quad  E_{SI} = E\epsilon
+\end{equation}
+Where $t,x,E$ are non-dimensional scaling units and $\tau, \chi$ and $\epsilon$ is the conversion factor between the scaling and SI units. Generally, one has the freedom to choose the values of 2 from $\tau, \chi, \epsilon$. The value of the third then follows from the 2 chosen. 
 
 In Composer units are scaled such that $\hbar = m = 1$. This means that we have unit lengths as $\chi = 1 \mu m$, $\tau \approx 1.36 \text{ms}$ and $\epsilon = 1 $ B O I
 
@@ -317,12 +323,25 @@ Single particles are simple to control. In a quartic potential one can write up 
 Through simulations it seems that BECs have very different dynamics compared to single particles. Without using $\proc{Grape}$, one can study how the similarity between single particles and BECs changes depending on the value of $\beta$. Keeping the control function and control duration the same, we find that what was a good solution for a single particle reaches a lower and lower fidelity as we change $\beta$ away from 0, but that it also reaches revivals with a higher fidelity compared to neighboring values. This behavior is shown in figure \ref{fig:beta} where the non-optimized control
 \begin{equation}
 	u_{\mathrm{non-opt}}(t)=0.12\cdot\sin(0.86\cdot \omega_{01} t)
+	\label{eq:nonopt-control}
 \end{equation} with final time $T=3.49$ was simulated for different values of $\beta$. We define $\omega_{01}$ to be the energy frequency between the ground and first excited state.
 
 \begin{figure}[h]
-	\includegraphics[width=\columnwidth]{graphics/beta.pdf}
+	\includegraphics[width=\columnwidth]{graphics/exploration/nonOptBeta.pdf}
 	\caption{Fidelity of a non-optimized solution for different values of $\beta$ in a quartic potential.}
 	\label{fig:beta}
+\end{figure}
+
+%TODO Kommenter på hvordan fidelity som funktion af tid svinger så på den måde handler det om at time det rigtigt hvis man ikke vil bruge Grape
+\begin{figure}
+	\begin{subfigure}{0.45\columnwidth}
+		\includegraphics[width=\columnwidth]{graphics/exploration/betaNonOptFidelityBeta7.PNG}
+	\end{subfigure}
+	\begin{subfigure}{0.45\columnwidth}
+		\includegraphics[width=\columnwidth]{graphics/exploration/betaNonOptFidelityBeta12.PNG}
+	\end{subfigure}
+	\caption{Fidelity as a function of time for the control function in Eq. \eqref{eq:nonopt-control} for two different values of $\beta$. Left is $\beta=7$, right is $\beta=12$.}
+	\label{fig:fidelityplot}
 \end{figure}
 
 % For large T we observe different behavior for BECs and SPs
@@ -338,10 +357,11 @@ The nonlinear interaction term of the BEC Hamiltonian also had a positive effect
 \end{figure}
 
 %QSL
+%TODO rewrite to fit new figure
 Studying the Quantum Speed Limit for this problem yields the results shown on figure \ref{fig:QSL}. The figure shows how different values of $\beta$ impacts the QSL for BECs in the anharmonic potential. As it can be seen, $\beta$ values away from 0 raise the speed limit increasingly the further away from 0 they are. \\
 
 \begin{figure}[h]
-	\includegraphics[width=\columnwidth]{graphics/QSL.pdf}
+	\includegraphics[width=\columnwidth]{graphics/exploration/QSL.pdf}
 	\caption{The estimated Quantum Speed Limit for a BEC in the anharmonic potential as a function of $\beta$. The behavior of the BEC at $\beta=0$ is the same as for a single particle. Notice how the QSL is doubled compared to a single particle when $\beta=25$. It has not been possible to reach the required fidelity for any $\beta < 5$.}
 	\label{fig:QSL}
 \end{figure}
@@ -464,6 +484,7 @@ When calculating the maximum reachable fidelity for some combination of $\beta$ 
 
 Both of these strategies worked well and provided nice seeds for $\proc{Grape}$ to optimize on. Despite some cases where the fidelity changes significantly from small variations of $\beta$, the overall rule seems to be that something that works well for one value of $\beta$ will have a similar fidelity for nearby values of $\beta$ and so this was also used to find a good seed when $\beta$ was larger than $10$, since above this limit the system seemed a lot more sensitive to the initial control function with respect to reaching the highest possible fidelity for that particular combination of $\beta$ and $T$. \\
 
+%TODO Mention how the down-to-up hopes to exploit the energylandscape being more simple
 Measuring the Quantum Speed Limit for the quartic potential involved a combination of 2 strategies: The self-dubbed "up-to-down" and "down-to-up" approaches. \\
 
 \proc{Up-to-down}:
