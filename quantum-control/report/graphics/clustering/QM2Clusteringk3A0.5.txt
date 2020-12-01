@@ -1,0 +1,9 @@
+Data found using the qm2_clustering setup flow files, N_Grape = 500
+T(comp)	F
+0.1949	0.66802
+0.2563	0.70848
+0.3177	0.75955
+0.345	0.75283
+0.3791	0.81049
+0.38	0.78169	Bemærk, numerisk fejl følger efter dette pga. for stor amplt
+0.4	0.76222	ingen num. fejl
