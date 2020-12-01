@@ -233,6 +233,8 @@ It is then possible to optimize the initial control function using \proc{Grape}.
 
 When the system is simulated, it is possible to analyze the wave function at the current point in time. Thus we are able to calculate and visualize different variables in our system as they are being simulated. This includes calculating the fidelity $F$ as a function of time, but we can also plot how our wave function evolves in time by mapping out $|\psi|^2(x,t)$. When the simulation is finished, the final fidelity $F(T)$ can be recorded.
 
+%TODO Write about how data is presented (matplotlib in Python)
+
 %TODO Include how to do conversions between time, energy, space etc.
 \subsubsection{Units}
 
@@ -243,6 +245,7 @@ In numerical problems it is useful to rescale units to work around the problems 
 Where $t,x,E$ are non-dimensional scaling units and $\tau, \chi$ and $\epsilon$ is the conversion factor between the scaling and SI units. Generally, one has the freedom to choose the values of 2 from $\tau, \chi, \epsilon$. The value of the third then follows from the 2 chosen. 
 
 In Composer units are scaled such that $\hbar = m = 1$. This means that we have unit lengths as $\chi = 1 \mu m$, $\tau \approx 1.36 \text{ms}$ and $\epsilon = 1 $ B O I
+
 
 
 \section{\label{sec:results}Results}
@@ -384,7 +387,7 @@ It is clear after having explored the behavior of BECs in different numerical se
 In a recent article where this problem has also been studied \cite{QM2Paper}, it was found that optimal solutions for increasing final times were dominated by cosine functions of increasing frequencies $k\pi t/T$. It was attempted to replicate this result by letting \proc{Grape} optimize seeds on the form $u(t) = A\cos(k\pi t/T)$ for 750 iterations each. By varying $k$ and $A$, the frequency and amplitude of the seeds were varied and their optimized solutions and reached fidelity noted. The results can be seen on figure \ref{fig:Clustering}. As can be seen on the figure, the results do not replicate those found in \cite{QM2Paper} where solutions dominated by different values of $k$ outperform other $k$'s for some interval. Note in particular that the overall highest fidelity was reached for a seed with frequency $k=2$ at $ T\approx 0.93 \text{ms} $, where $ k=5 $ was expected to be the best performing frequency. However, note that both $k=4$ and $k=5$ reach solutions that outperform the other seeds for that particular timescale and that they do so in the expected order (4 before 5). It should also be mentioned that the $k=4$ data span a smaller time interval due to numerical errors in their solutions for $T>0.8 ms$. This is discussed further in section \ref{subsec:numericalLimitations}. \\
 
 To replicate the results found in \cite{QM2Paper}, the system conditions had to be replicated in Composer where the scales are chosen from the requirement $\hbar = m = 1 \Rightarrow \chi = 1\mu m, \, \tau \approx 1.36$ where $\chi$ and $\tau$ are the scales of length and time respectively, such that $x_{SI}=\chi x$ etc. The paper has on the other hand chosen scales such that $\chi = 1 \mu\text{m}$ and $\tau = 1 \text{ms}$ \cite{QEngine}. This results in a conversion factor of $\kappa = 1.36537$ compared to those found in \cite{QEngine} of the following quantities: $\beta_{old} = 1.8299 \rightarrow \beta = 2.5042 = \kappa \beta_{old}$, $p_i \rightarrow \kappa p_i$ where $V(x,u(t)) = \sum_{i=2,4,6} p_i (x-u(t))^i$ is the potential of the system and finally $\tau$. \\
-
+%TODO More ticks on y-axis, one point is not enough
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/newclustering/QM2Clustering.pdf}
 	\caption{Infidelity of \proc{Grape} optimized solutions with initial control $u(t)=A\cos(k\pi t/T)$. The first axis shows the control duration $T$.}
