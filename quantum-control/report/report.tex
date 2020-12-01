@@ -231,7 +231,7 @@ It is then possible to optimize the initial control function using \proc{Grape}.
 \end{figure}
 
 
-When the system is simulated, it is possible to analyze the wave function at the current point in time. Thus we are able to calculate and visualize different results from our simulation as they are being simulated. This includes calculating the fidelity $F$ as a function of time, but we can also plot how our wave function evolves in time by mapping out $|\psi|^2(x,t)$. When the simulation is finished, the final fidelity $F(T)$ can be recorded.
+When the system is simulated, it is possible to analyze the wave function at the current point in time. Thus we are able to calculate and visualize different variables in our system as they are being simulated. This includes calculating the fidelity $F$ as a function of time, but we can also plot how our wave function evolves in time by mapping out $|\psi|^2(x,t)$. When the simulation is finished, the final fidelity $F(T)$ can be recorded.
 
 %TODO Include how to do conversions between time, energy, space etc.
 \subsubsection{Units}
@@ -256,12 +256,12 @@ One obvious source of numerical inaccuracies is the resolution of the quantized 
 	\label{fig:groundstateGrid}
 \end{figure}
 
-%TODO Leave this figure out?
-\begin{figure}
-	\includegraphics[width=\columnwidth]{graphics/ExcitedstateGrid.pdf}
-	\caption{Difference between different resolutions of the desired wave function compared to the $1024$ point calculated target wave function.}
-	\label{fig:excitedstateGrid}
-\end{figure}
+%Excited state difference
+%\begin{figure}
+%	\includegraphics[width=\columnwidth]{graphics/ExcitedstateGrid.pdf}
+%	\caption{Difference between different resolutions of the desired wave function compared to the $1024$ point calculated target wave function.}
+%	\label{fig:excitedstateGrid}
+%\end{figure}
 
 % Relate this to time consumption to explain why we dont do use the 1024 size but instead the 256
 Considering this, one would think that it would always be better to use as high spatial resolution of a given system as possible. This would of course be true if we had access to unlimited computational power. We instead have to balance the desire for a high spatial resolution and more accurate wave functions against the increased time it takes to do calculations for a higher dimension Hilbert space. As an example of this increased calculation time, a system was set up the following parameters: $\beta = 4$, $V(x,u(t)) = a(x-u(t))^2 + b(x-u(t))^4$ with $a=50$, $b=128$, $u(t)=0.5 \cos(2\pi t/T)$ and $T=0.8 \tau \approx 1.09$ ms. This system was then optimized for 100 iterations using \proc{Grape} before the system was simulated with the optimized control function. The results can be seen on Fig. \ref{fig:performanceTime}. From this result we can reassure ourselves that choosing a grid resolution of $256$ points gives us a high accuracy compared to lower resolutions while also keeping performance time lower than for higher resolutions, where the performance time increases more rapidly.
@@ -273,6 +273,8 @@ Considering this, one would think that it would always be better to use as high 
 \end{figure}
 
 %TODO Is this also the case for time-step resolution? 501 is used now, but in the QM2 paper it was 1001? Plot for 250, 500, 750, 1000, 1250? Here we would also encounter a problem when we take a too large step with numerical inaccuracy, thus small step --> better approx
+
+\subsubsection{Eigenvectors \& eigenvalues}
 
 In order to reach accurate results when making these computations, one has to ensure that the states that are analyzed are described within acceptable numerical accuracy. We can ensure that we are working with the ground state as our initial state in Composer by calculating the variance of our initial state wrt. the Hamiltonian
 \begin{equation}
@@ -358,6 +360,8 @@ The nonlinear interaction term of the BEC Hamiltonian also had a positive effect
 
 %QSL
 %TODO rewrite to fit new figure
+%TODO Mention how this is an estimate and that it was only optimized for 100 iterations of Grape due to the way sampling data in Composer Works, therefore, it would be a matter of trying more seeds and optimizing for longer to find a presumably even lower estimate
+%TODO Also mention how the variance is pretty high for this setup and not suitable for betas far away from 0
 Studying the Quantum Speed Limit for this problem yields the results shown on figure \ref{fig:QSL}. The figure shows how different values of $\beta$ impacts the QSL for BECs in the anharmonic potential. As it can be seen, $\beta$ values away from 0 raise the speed limit increasingly the further away from 0 they are. \\
 
 \begin{figure}[h]
