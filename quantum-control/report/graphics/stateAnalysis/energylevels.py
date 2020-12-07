@@ -43,3 +43,4 @@ plt.legend(loc="best")
 
 filename = "Energylevels"
 plt.savefig(filename+".pdf")
+plt.savefig(filename+".png")

@@ -42,3 +42,4 @@ plt.legend(loc="best")
 
 filename = "Energydifference"
 plt.savefig(filename+".pdf")
+plt.savefig(filename+".png")
