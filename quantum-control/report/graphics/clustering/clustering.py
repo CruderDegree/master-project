@@ -34,7 +34,7 @@ for comb in combinations:
         line = data.readline()
     data.close()
     plotlabel = r"$k:" + str(k) + ", A:" + str(A) +"$"
-    plt.plot(T, inF, label=plotlabel)
+    plt.plot(T, inF,".-", label=plotlabel)
     
 # Edit fig
 plt.xlabel("T [ms]")

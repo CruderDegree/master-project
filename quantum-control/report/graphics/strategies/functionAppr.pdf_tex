@@ -49,7 +49,7 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.62426599)%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{graphics/functionAppr.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{graphics/strategies/functionAppr.pdf}}%
     \put(-0.00082794,0.5705951){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u(t)$}}}%
     \put(0.96132931,0.04389204){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t$}}}%
     \put(0.67789744,0.03961438){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$T_1$}}}%

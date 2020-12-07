@@ -50,7 +50,7 @@
   \makeatother%
   \begin{picture}(1,0.54617275)%
     \put(0.06123712,0.30284651){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{graphics/graphAppr.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{graphics/strategies/graphAppr.pdf}}%
     \put(0.46756634,0.25043982){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u(t)$}}}%
     \put(0.9651443,0.00519252){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t$}}}%
     \put(0.49567212,0.1418653){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
