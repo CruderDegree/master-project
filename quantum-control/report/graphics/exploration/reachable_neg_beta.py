@@ -1,5 +1,11 @@
+# Link to common library
+import os, sys
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
+
 import matplotlib.pyplot as plt
-from fileReader import fileReader
+from lib.fileReader import fileReader
 # Other times: 0.8, 1.5, 2,
 timescales = [0.9,1,1.25]
 filename = "reachable_neg_beta"
@@ -18,7 +24,7 @@ for T in timescales:
     maxb = -5
     #plt.plot(beta,inF, 'k-', linewidth=0.5)
     name = "T = "+str(T)
-    plt.plot(beta,inF, '-', linewidth=1, label=name)
+    plt.plot(beta,inF, 'o-', linewidth=1, label=name)
 
 plt.plot([minb, maxb], [1-0.99, 1-0.99], 'r--', linewidth=0.75)
 plt.xlabel("β")

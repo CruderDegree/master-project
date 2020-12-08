@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+from numpy import arange
 #As = [0.15, 0.33, 0.4, 0.5]
 #ks = [2, 3, 4, 5]
 
@@ -39,6 +39,7 @@ for comb in combinations:
 # Edit fig
 plt.xlabel("T [ms]")
 plt.yscale("log")
+plt.yticks([1, 1-0.9, 1-0.99])
 plt.ylabel("1 - F")
 plt.legend(loc="best")
 
