@@ -18,20 +18,20 @@ for size in sizes[:-1]:
     
     x = data[:, 0]
     ground = data[:, 1]
-    print("test ground is not 0", ground[0])
-    print("ground type:", type(ground))
+    #print("test ground is not 0", ground[0])
+    #print("ground type:", type(ground))
     #print("Resolution of", size, ":", len(x))    
     
     psi = groundhi.copy()
     for i in range(len(ground)):
         for j in range(r):
             psi[r*i + j] = ground[i]
-    print("Psi type:", type(psi))
-    print("Test that psi[0] is not 0", psi[0])
-    print("psi",psi)
+    #print("Psi type:", type(psi))
+    #print("Test that psi[0] is not 0", psi[0])
+    #print("psi",psi)
     diff = groundhi - psi
     
-    print("diff", diff)
+    #print("diff", diff)
     plt.plot(xhi,diff, '.', label=r"$n="+str(size)+"$")
 
 plt.xlabel(r"$x [\mu m]$")

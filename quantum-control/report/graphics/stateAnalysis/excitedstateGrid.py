@@ -20,9 +20,9 @@ for size in sizes[:-1]:
     for i in range(len(excited)):
         for j in range(r):
             psi[r*i + j] = excited[i]
-    print("Psi type:", type(psi))
-    print("Test that psi[0] is not 0", psi[0])
-    print("psi",psi)
+    #print("Psi type:", type(psi))
+    #print("Test that psi[0] is not 0", psi[0])
+    #print("psi",psi)
     diff = excitedhi - psi
     
 

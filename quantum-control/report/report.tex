@@ -23,7 +23,7 @@
 %  Add 'showkeys' option to make keywords appear
 %\documentclass[aps,prl,preprint,groupedaddress]{revtex4-1}
 %\documentclass[aps,prl,preprint,superscriptaddress]{revtex4-1}
-\documentclass[aps,pra,reprint,superscriptaddress]{revtex4-1}
+\documentclass[a4paper, twocolumn]{revtex4-1}
 
 % You should use BibTeX and apsrev.bst for references
 % Choosing a journal automatically selects the correct APS
@@ -130,21 +130,18 @@ which contains a nonlinear term with front factor $\beta$ compared to the Hamilt
 The problem was explored by adjusting $\beta$, the control final time $T$, the control function $u(t)$ as well as working with different trapping potentials.
 
 Depending on the sign of $\beta$ in \eqref{eq:Hbec} the interatomic interaction will be either attractive ($\beta<0$) or repulsive ($\beta>0$) and based on this, we would expect the state to respectively shrink or grow in size as a result of this interaction. This is also what can be seen on Fig. \ref{fig:BECgroundstate}, where the ground state is plotted as a function of $\beta$.
-%TODO Lav til subfigures i stedet
-%TODO x-lim = -0.8 to 0.8
 \begin{figure}[h]
-	\includegraphics[width=\columnwidth]{graphics/stateAnalysis/GroundstateBeta.pdf}
-	\caption{The groundstate of a BEC in a quartic trapping potential, shown as a function of the atomic interaction parameter $\beta$ in \ref{eq:Hbec}.}
-	\label{fig:BECgroundstate}
+	\begin{subfigure}{\columnwidth}
+		\includegraphics[width=\columnwidth]{graphics/stateAnalysis/GroundstateBeta.pdf}
+	\end{subfigure}
+	\begin{subfigure}{\columnwidth}
+		\includegraphics[width=\columnwidth]{graphics/stateAnalysis/ExcitedstateBeta.pdf}
+	\end{subfigure}
+	\caption{\textbf{Top:} Groundstate of a BEC in a quartic trapping potential, shown as a function of the atomic interaction parameter $\beta$ in \ref{eq:Hbec}. \textbf{Bottom:} First excited state of the same system.}
+	\label{fig:BECstates}
 \end{figure}
 
 The 1st excited state likewise shares this property, but since this state is already larger than the ground state, its size is not altered by $\beta$ to the same extend. This is shown on figure \ref{fig:BECexcitedstate}.
-%TODO x-lim = -0.8 to 0.8
-\begin{figure}
-	\includegraphics[width=\columnwidth]{graphics/stateAnalysis/ExcitedstateBeta.pdf}
-	\caption{The 1st excited state of a BEC in a quartic trapping potential. This is the desired state which we attempt to transform the initial ground state into.}
-	\label{fig:BECexcitedstate}
-\end{figure}
 
 %TODO Explain parameters that Grape uses, gamma, sigma, etc
 It is possible to optimize a control function to, in many cases, reach even higher fidelity than the initial function. In this problem the optimization algorithm $\proc{Grape}$ is used. $\proc{Grape}$ takes an input control function (a "seed"), and calculates the gradient of $F$ with respect to each point of the control function on the discretized time scale $\vec{\nabla}_{\vec{u}}F(\vec{u})$, such that $\vec{u} = (u(t_0), u(t_1) ... \,, u(T))$. When this calculation is done, $\proc{Grape}$ takes a step of size $\alpha_k$ such that the new discretized control function becomes

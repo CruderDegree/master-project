@@ -12,7 +12,7 @@ for beta in betas:
 
 plt.xlabel(r"$x [\mu m]$")
 plt.ylabel(r"$|\psi|^2$")
-plt.xlim([-1, 1])
+plt.xlim([-0.8, 0.8])
 plt.legend(loc="best")
 
 filename = "GroundstateBeta"
