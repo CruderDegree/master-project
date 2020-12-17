@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{5}%
+\begin{thebibliography}{7}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -81,6 +81,24 @@
   {journal} {Reviews of Modern Physics}\ }\textbf {\bibinfo {volume} {82}},\
   \bibinfo {pages} {1225–1286} (\bibinfo {year} {2010})}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Sørensen}(2018)}]{JensJacobPhDThesis}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~J.}\ \bibnamefont
+  {Sørensen}},\ }\emph {\bibinfo {title} {Quantum Control of Ultracold Quantum
+  Systems}},\ \href@noop {} {Ph.D. thesis},\ \bibinfo  {school} {Aarhus
+  University} (\bibinfo {year} {2018})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2018)\citenamefont
+  {Sørensen}, \citenamefont {Aranburu}, \citenamefont {Heinzel},\ and\
+  \citenamefont {Sherson}}]{GroupPaper}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~J. W.~H.}\
+  \bibnamefont {Sørensen}}, \bibinfo {author} {\bibfnamefont {M.~O.}\
+  \bibnamefont {Aranburu}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Heinzel}}, \ and\ \bibinfo {author} {\bibfnamefont {J.~F.}\ \bibnamefont
+  {Sherson}},\ }\href {\doibase 10.1103/physreva.98.022119} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {98}} (\bibinfo {year} {2018}),\
+  10.1103/physreva.98.022119}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2019)\citenamefont
   {Sørensen}, \citenamefont {Jensen}, \citenamefont {Heinzel},\ and\
   \citenamefont {Sherson}}]{QEngine}%
@@ -93,6 +111,15 @@
   {journal} {Computer Physics Communications}\ }\textbf {\bibinfo {volume}
   {243}},\ \bibinfo {pages} {135–150} (\bibinfo {year} {2019})}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Deffner}\ and\ \citenamefont
+  {Campbell}(2017)}]{Deffner_2017}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Deffner}}\ and\ \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Campbell}},\ }\href {\doibase 10.1088/1751-8121/aa86c6} {\bibfield
+  {journal} {\bibinfo  {journal} {Journal of Physics A: Mathematical and
+  Theoretical}\ }\textbf {\bibinfo {volume} {50}},\ \bibinfo {pages} {453001}
+  (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jensen}\ \emph {et~al.}(2020)\citenamefont {Jensen},
   \citenamefont {Gajdacz}, \citenamefont {Ahmed}, \citenamefont {Czarkowski},
   \citenamefont {Weidner}, \citenamefont {Rafner}, \citenamefont {Sørensen},
@@ -110,16 +137,4 @@
   {\bibinfo {title} {Crowdsourcing human common sense for quantum control},}\ }
   (\bibinfo {year} {2020}),\ \Eprint {http://arxiv.org/abs/2004.03296}
   {arXiv:2004.03296 [quant-ph]} \BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2018)\citenamefont
-  {Sørensen}, \citenamefont {Aranburu}, \citenamefont {Heinzel},\ and\
-  \citenamefont {Sherson}}]{GroupPaper}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~J. W.~H.}\
-  \bibnamefont {Sørensen}}, \bibinfo {author} {\bibfnamefont {M.~O.}\
-  \bibnamefont {Aranburu}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
-  {Heinzel}}, \ and\ \bibinfo {author} {\bibfnamefont {J.~F.}\ \bibnamefont
-  {Sherson}},\ }\href {\doibase 10.1103/physreva.98.022119} {\bibfield
-  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
-  {volume} {98}} (\bibinfo {year} {2018}),\
-  10.1103/physreva.98.022119}\BibitemShut {NoStop}%
 \end{thebibliography}%
