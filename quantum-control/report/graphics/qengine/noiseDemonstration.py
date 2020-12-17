@@ -18,26 +18,40 @@ fig, ax = plt.subplots()
 
 ## Read durations
 durations = data["durations"]
-iterations = 10
+iterations = int(data["noise_iter"])
 
-for duration in durations:
-    try:
-        fidelities = data["fidelity_grape_"+str(duration)]
-    except KeyError:
+optimizers = ["grape_", "group_", "dgroup_"]
+labelDict = {"grape_":"GRAPE", "group_":"GROUP", "dgroup_":"dGROUP"}
+plotDict = {"grape_":"orange", "group_":"blue", "dgroup_":"green"}
+
+for optimizer in optimizers:
+    maxFs = []
+    for duration in durations:
+        ## Load fidelities
         try:
-            fidelities = data["fidelity_grape_"+str(round(duration, 2))]
+            fidelities = data["fidelity_"+optimizer+str(duration)]
         except KeyError:
-            fidelities = data["fidelity_grape_"+str(int(duration))]
-    
-    infidelities = [1] * iterations
-    for i in range(iterations):
-        infidelities[i] -= fidelities[i]
-    
-    ax.plot([duration]*iterations, infidelities, 'b.')
+            try:
+                fidelities = data["fidelity_"+optimizer+str(round(duration, 2))]
+            except KeyError:
+                fidelities = data["fidelity_"+optimizer+str(int(duration))]
+        
+        # Calc 1 - F
+        infidelities = [1] * iterations
+        maxF = fidelities[0]
+        for i in range(iterations):
+            infidelities[i] -= fidelities[i]
+            if fidelities[i] > maxF:
+                maxF = fidelities[i]
+        maxFs.append(1-maxF)
+        ax.plot([duration]*iterations, infidelities, '.', alpha=0.4, color=plotDict[optimizer])
+        
+    ax.plot(durations, maxFs, '.', color=plotDict[optimizer], label=labelDict[optimizer])
 
 ax.set_yscale("log")
 ax.set_xlabel("Control time [ms]")
 ax.set_ylabel("1 - F")
+ax.legend(loc="best")
 
 fig.savefig("noiseDemoInf.pdf")
 fig.savefig("noiseDemoInf.png")
