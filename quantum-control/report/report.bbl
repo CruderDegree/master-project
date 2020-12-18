@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{7}%
+\begin{thebibliography}{8}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -120,6 +120,19 @@
   {journal} {\bibinfo  {journal} {Journal of Physics A: Mathematical and
   Theoretical}\ }\textbf {\bibinfo {volume} {50}},\ \bibinfo {pages} {453001}
   (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Donley}\ \emph {et~al.}(2001)\citenamefont {Donley},
+  \citenamefont {Claussen}, \citenamefont {Cornish}, \citenamefont {Roberts},
+  \citenamefont {Cornell},\ and\ \citenamefont {Wieman}}]{Donley2001}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.~A.}\ \bibnamefont
+  {Donley}}, \bibinfo {author} {\bibfnamefont {N.~R.}\ \bibnamefont
+  {Claussen}}, \bibinfo {author} {\bibfnamefont {S.~L.}\ \bibnamefont
+  {Cornish}}, \bibinfo {author} {\bibfnamefont {J.~L.}\ \bibnamefont
+  {Roberts}}, \bibinfo {author} {\bibfnamefont {E.~A.}\ \bibnamefont
+  {Cornell}}, \ and\ \bibinfo {author} {\bibfnamefont {C.~E.}\ \bibnamefont
+  {Wieman}},\ }\href {\doibase 10.1038/35085500} {\bibfield  {journal}
+  {\bibinfo  {journal} {Nature}\ }\textbf {\bibinfo {volume} {412}},\ \bibinfo
+  {pages} {295} (\bibinfo {year} {2001})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Jensen}\ \emph {et~al.}(2020)\citenamefont {Jensen},
   \citenamefont {Gajdacz}, \citenamefont {Ahmed}, \citenamefont {Czarkowski},
   \citenamefont {Weidner}, \citenamefont {Rafner}, \citenamefont {Sørensen},

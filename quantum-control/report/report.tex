@@ -158,17 +158,6 @@ Note, that this does not mean that an optimized seed will always be able to reac
 
 The challenge was explored in Quantum Composer by creating different systems and trying different control functions and optimization methods. The different systems had their potentials varied and the interatomic interaction parameter $\beta$ as well. The control functions themselves were varied and explored, along with the control duration $T$ and the \proc{Grape} optimization parameters $F_{target}$, $N$ and $\gamma$.
 
-%TODO Include how to do conversions between time, energy, space etc.
-\subsubsection{Units}
-
-In numerical problems it is useful to rescale units to work around the problems of finite precision memory. Thus, it is convenient to rescale things like time, space and energy like so 
-\begin{equation}
-t_{SI} = t \tau, \quad  x_{SI} = x\chi, \quad  E_{SI} = E\epsilon
-\end{equation}
-Where $t,x,E$ are non-dimensional scaling units and $\tau, \chi$ and $\epsilon$ is the conversion factor between the scaling and SI units. Generally, one has the freedom to choose the values of 2 from $\tau, \chi, \epsilon$. The value of the third can then be calculated using the other 2. 
-
-
-
 
 \section{Quantum Composer}\label{sec:Composer}
 Quantum Composer is a tool for visualizing the quantum mechanics of a system, either statically or as the system evolves in time. To do this, one combines building blocks (nodes) containing the various components (e.g. a potential $\hat{V}$) to build new nodes (e.g. a wave function $\Psi$). Some of these nodes can be visualized on graphs to show f.x. a wave function norm squared and can be evolved over time using a time node. The use of Composer in this report can be grouped into three overall groups: System setup, \proc{Grape} optimization and simulation. These groups and their components have been visualized on Fig. \ref{fig:flowdiagram}. 
@@ -269,8 +258,6 @@ Considering this, one would think that it would always be better to use as high 
 	\label{fig:performanceTime}
 \end{figure}
 
-%TODO Is this also the case for time-step resolution? 501 is used now, but in the QM2 paper it was 1001? Plot for 250, 500, 750, 1000, 1250? Here we would also encounter a problem when we take a too large step with numerical inaccuracy, thus small step --> better approx
-
 \subsubsection{Eigenvectors \& eigenvalues}
 
 In order to reach accurate results when making these computations, one has to ensure that the states that are analyzed are described within acceptable numerical accuracy. We can ensure that we are working with the ground state as our initial state in Composer by calculating the variance of our initial state wrt. the Hamiltonian
@@ -285,13 +272,7 @@ This gives us a numerical estimate of how "close" our initial state is to the ac
 
 The way the energy spectrum of $\hat{H}_{GPE}$ is calculated is not trivial \cite{QEngine}, but the variance can generally be reduced by adjusting different parameters of the system or Composer file, e.g. spatial dimension $x$ or initial conditions for the $H_{GPE}$ spectrum node. Despite these possible fixes, the numerical limitations of Quantum Composer become apparent as the "Shake Up" problem is explored in increasingly greater details and limits and accuracy are pushed further and further. The following paragraphs describe areas where the numerical limitations are significantly limiting the exploration of certain aspects of this problem.\\
 
-As the work with the QSL shown in figure \ref{fig:QSL} was explored, it was desirable to examine how the energy levels of the state changed as a function of $\beta$. The idea was that $\beta$ could change the spacing between the different levels of the potential well and perhaps make the spacing more even for some high or low values of $\beta$. As was shown in figure \ref{fig:HO}, the even spacing of a harmonic quadratic potential makes it difficult to reach the high fidelities desired. To investigate this, the energy difference between the first excited state and the ground state as well as the difference between the second and first excited state was calculated in Composer. The calculated differences are shown in figure \ref{fig:energyDiff} and show that the uncertainty of the second excited state energy rapidly increases as $\beta$ moves away from $0$. It since became apparent that it is not possible to calculate the second excited state of a BEC in Quantum Composer \cite{QEngine}. This nonetheless represents a numerical limitation to exploring this problem. \\
-%TODO Hide this figure
-%\begin{figure}
-%	\includegraphics[width=\columnwidth]{graphics/stateAnalysis/Energydifference.pdf}
-%	\caption{Energy difference between the first 3 excited states of a BEC in a quartic potential. Note that it is not possible to calculate the second excited state of a BEC in Quantum Composer, and so these values are not valid.}
-%	\label{fig:energyDiff}
-%\end{figure}
+As the work with the QSL shown in figure \ref{fig:QSL} was explored, it was desirable to examine how the energy levels of the state changed as a function of $\beta$. The idea was that $\beta$ could change the spacing between the different levels of the potential well and perhaps make the spacing more even for some high or low values of $\beta$. As was shown in figure \ref{fig:HO}, the even spacing of a harmonic quadratic potential makes it difficult to reach the high fidelities desired. To investigate this, the energy difference between the first excited state and the ground state as well as the difference between the second and first excited state was calculated in Composer.\\
 
 Despite not being able to calculate the second excited state of a BEC, it was also desired to explore how the ground and first excited state energies changed as a function of $\beta$. These energies are plotted on figure \ref{fig:energyLevels} and as can be seen, the uncertainty regarding the first excited state increases for values of $\beta$ below $-10$. As mentioned when estimating the optimizable limit of negative $\beta$'s, this could explain why $\beta=-10$ is the optimizable limit found.\\
 
@@ -315,16 +296,12 @@ Even when working within the low-variance range of this problem, one still has t
 \end{figure}
 
 \subsection{Challenge exploration}\label{subsec:challenge_expl}
-%TODO Consider leaving out the single particle case since it is not really treated at all
-% Single particle
-Single particles are simple to control. In a quartic potential one can write up many simple control functions which are all able to reach $F\approx0.99$ after at most 25 iterations of $\proc{Grape}$. This is not the case in the quadratic potential since the state is easily excited beyond the desired state due to the equal spacing of energy eigenstates. \\
-
 % BEC in anharmonic
 Through simulations it seems that BECs have very different dynamics compared to single particles. Without using $\proc{Grape}$, one can study how the similarity between single particles and BECs changes depending on the value of $\beta$. Keeping the control function and control duration the same, we find that what was a good solution for a single particle reaches a lower and lower fidelity as we change $\beta$ away from 0, but that it also reaches revivals with a higher fidelity compared to neighboring values. This behavior is shown in figure \ref{fig:beta} where the non-optimized control
 \begin{equation}
 	u_{\mathrm{non-opt}}(t)=0.12\cdot\sin(0.86\cdot \omega_{01} t)
 	\label{eq:nonopt-control}
-\end{equation} with final time $T=3.49$ was simulated for different values of $\beta$. We define $\omega_{01}$ to be the energy frequency between the ground and first excited state.
+\end{equation} with final time $T=3.49$ was simulated for different values of $\beta$. We define $\omega_{01}$ to be the energy frequency between the ground and first excited state. This varying should not come as a surprise. The function in eq. \eqref{eq:nonopt-control} was chosen because of its high fidelity score around $\beta~1$, but expecting this control function to perform well for the wide range of other systems (i.e. values of $\beta$) it is tested on would not be expected. While the behavior of similar systems is not vastly different, this small change to the system dynamics does mean that some systems will not reach a high fidelity at the final time, while others will. This can also be seen on Fig. \ref{fig:beta}, where the fidelity as a function of time has been plotted for 2 different interaction strengths. So when one does not optimize the control function it does not seem viable to use it on a broad range of systems as it then becomes a matter of 'timing' the control duration $T$ to reach a high fidelity instead of examining the performance of the control and making changes according to what was observed.
 
 \begin{figure}[h]
 	\includegraphics[width=\columnwidth]{graphics/exploration/nonOptBeta.pdf}
@@ -332,7 +309,6 @@ Through simulations it seems that BECs have very different dynamics compared to 
 	\label{fig:beta}
 \end{figure}
 
-%TODO Kommenter på hvordan fidelity som funktion af tid svinger så på den måde handler det om at time det rigtigt hvis man ikke vil bruge Grape
 \begin{figure}
 	\begin{subfigure}{0.45\columnwidth}
 		\includegraphics[width=\columnwidth]{graphics/exploration/betaNonOptFidelityBeta7.PNG}
@@ -340,16 +316,16 @@ Through simulations it seems that BECs have very different dynamics compared to 
 	\begin{subfigure}{0.45\columnwidth}
 		\includegraphics[width=\columnwidth]{graphics/exploration/betaNonOptFidelityBeta12.PNG}
 	\end{subfigure}
-	\caption{Fidelity as a function of time for the control function in Eq. \eqref{eq:nonopt-control} for two different values of $\beta$. Left is $\beta=7$, right is $\beta=12$.}
+	\caption{Fidelity as a function of time for the control function in Eq. \eqref{eq:nonopt-control} for two different values of $\beta$. Left is $\beta=7$, right is $\beta=12$. As can be seen, the overall trend is the same for the 2 systems and so it becomes a matter of 'timing' the final time to reach a higher fidelity if one refrains from using \proc{Grape} to optimize controls.}
 	\label{fig:fidelityplot}
 \end{figure}
 
 % For large T we observe different behavior for BECs and SPs
-When studying BECs in the quartic potential, it was found that for small $\beta<5$ it was possible to optimize the state to reach the same high fidelity as for the single particle case. For larger values of $\beta$, it was observed that the final fidelity converged on increasingly smaller values. The fidelity could be improved by raising/lowering the final time $T$, but for large $\beta > 25$ the maximum reachable fidelity with $\proc{Grape}$ decreases to below $0.99$. So obviously there exists some relationship between $\beta$ and $T$ where some combinations result in high fidelity while others do not. This could also explain why some values of $\beta$ in figure \ref{fig:beta} increase the fidelity in a small region (e.g. around $\beta=10$) as if there is some kind of resonance. \\
+%When studying BECs in the quartic potential, it was found that for small $\beta<5$ it was possible to optimize the state to reach the same high fidelity as for the single particle case. For larger values of $\beta$, it was observed that the final fidelity converged on increasingly smaller values. The fidelity could be improved by raising/lowering the final time $T$, but for large $\beta > 25$ the maximum reachable fidelity with $\proc{Grape}$ decreases to below $0.99$. So obviously there exists some relationship between $\beta$ and $T$ where some combinations result in high fidelity while others do not. This could also explain why some values of $\beta$ in figure \ref{fig:beta} increase the fidelity in a small region (e.g. around $\beta=10$) as if there is some kind of resonance. \\
 
 % BEC in harmonic
-The nonlinear interaction term of the BEC Hamiltonian also had a positive effect when optimizing BECs in the harmonic potential case. Here, this term caused a greater final fidelity for some values of $\beta$ than in the single particle case, where it was difficult to reach a fidelity of $0.4$. This is shown in figure \ref{fig:HO}.\\
-%TODO This might be due to numerical inacc
+Due to the same spaced energy levels of a quadratic potential, it is difficult to excite the state exclusively to the first excited state. It is likely that some part of the state is driven into higher excited states and so it is challenging to reach high fidelities with this kind of potential. Nonetheless, the nonlinear contribution to the GPE Hamiltonian seems to make it possible to improve the fidelity of control functions compared to the levels reachable for a single particle. In a quadratic potential different controls were optimized to estimate the highest reachable fidelity for this kind of potential as a function of the nonlinear interaction strength $\beta$. These controls were optimized with \proc{Grape} for $100$ iterations and the highest reachable fidelity was then noted, the results can be seen on Fig. \ref{fig:HO}. As can be seen on the figure, it is actually possible to reach higher levels of fidelity for all measured values of $\beta \neq 0$ with control duration $T\approx 1.36$. The highest result shows that it is possible to improve the fidelity score with about $50\%$ compared to the reachable score of a single particle. One should also note that controls with duration $T~10.2 ms$ does not perform as well as the other 2 shown durations. This is suspected to be caused by the long control duration allowing for states to be excited beyond the targeted first excited state, which the smaller control durations are not as susceptible to. Another explanation could be that the increased control duration makes the optimization landscape more complex and so more sensitive to the inital control that is being optimized on.
+
 \begin{figure}[h]
 	\includegraphics[width=\columnwidth]{graphics/exploration/betaTHO.pdf}
 	\caption{The result of varying $\beta$ and $T$ for a BEC in the harmonic potential. As it can be seen, there exists 'resonant' combinations where it is possible to achieve above $50\%$ higher fidelity compared to a single particle (at $\beta=0$), but many also combinations that are on par with or worse than a single particle.}
@@ -357,18 +333,16 @@ The nonlinear interaction term of the BEC Hamiltonian also had a positive effect
 \end{figure}
 
 %QSL
-%TODO rewrite to fit new figure
-%TODO Mention how this is an estimate and that it was only optimized for 100 iterations of Grape due to the way sampling data in Composer Works, therefore, it would be a matter of trying more seeds and optimizing for longer to find a presumably even lower estimate
-%TODO Also mention how the variance is pretty high for this setup and not suitable for betas far away from 0
-Studying the Quantum Speed Limit for this problem yields the results shown on figure \ref{fig:QSL}. The figure shows how different values of $\beta$ impacts the QSL for BECs in the anharmonic potential. As it can be seen, $\beta$ values away from 0 raise the speed limit increasingly the further away from 0 they are. \\
+It was attempted to estimate the Quantum Speed Limit for this control problem and its dependence on the interaction strength of the BEC, $\beta$. The methods for determining seeds are discussed in section \ref{sec:strats}. The seeds chosen were then optimized for 100 iterations where it was then simulated to see if it could surpass a fidelity of $0.99$.
+The resulting estimates of the QSL for different values of $\beta$ can are shown on Fig. \ref{fig:QSL}. Notice how it seems that the speed limit is lower for attractive BECs and increasingly higher for increasingly more repulsive BECs. It was not possible to estimate the QSL for values of $\beta$ below $-10$ or above $25$, since no control function could be optimized to $0.99$ within 100 iterations. \\
 
 \begin{figure}[h]
 	\includegraphics[width=\columnwidth]{graphics/exploration/QSL.pdf}
-	\caption{The estimated Quantum Speed Limit for a BEC in the anharmonic potential as a function of $\beta$. The behavior of the BEC at $\beta=0$ is the same as for a single particle. Notice how the QSL is doubled compared to a single particle when $\beta=25$. It has not been possible to reach the required fidelity for any $\beta < 5$.}
+	\caption{The estimated Quantum Speed Limit for a BEC in a quartic potential as a function of $\beta$.}
 	\label{fig:QSL}
 \end{figure}
 
-It is clear after having explored the behavior of BECs in different numerical setups that the behavior the BECs are not symmetric with respect to $\beta$. This is not unexpected, since the sign of $\beta$ constitutes whether the atom-atom interaction happening inside the BEC is repulsive($\beta>0$) or attractive ($\beta<0$) and so it would not be unjustified to say that the sign of $\beta$ describe entirely different species of bosons. Since attractive BECs have proven difficult to optimize on for $\beta<-5$, it was explored what the lower limit of $\beta$ would be with respect to reaching an optimizable fidelity of at least $0.99$. The results of this exploration is seen on figure \ref{fig:reachable_neg_betas}, where it can be seen that for values of $\beta<-10$ it is no longer possible to reach $F~0.99$. In subsection \ref{subsec:numericalLimitations}, this observation is discussed.
+It is clear after having explored the behavior of BECs in different numerical setups that the behavior the BECs are not symmetric with respect to $\beta$. This is not unexpected, since the sign of $\beta$ constitutes whether the atom-atom interaction happening inside the BEC is repulsive($\beta>0$) or attractive ($\beta<0$) and so it would not be unjustified to say that the sign of $\beta$ describe entirely different species of bosons. Since attractive BECs have proven difficult to optimize on for $\beta<-5$, it was explored what the lower limit of $\beta$ would be with respect to reaching an optimizable fidelity of at least $0.99$. The results of this exploration is seen on figure \ref{fig:reachable_neg_betas}, where it can be seen that for values of $\beta<-10$ it is no longer possible to reach $F~0.99$. While this lower bound could be seen as a numerical limitation of Composer as discussed in Sec. \ref{subsec:numericalLimitations}, it is also relevant to consider that there exists a lower bound for how attractive a BEC can be before the atoms collapse in on themselves in a process known as a Bose-Nova\cite{Donley2001}.
 
 
 \begin{figure}
@@ -379,33 +353,29 @@ It is clear after having explored the behavior of BECs in different numerical se
 
 %clustering of solutions
 \subsection{\label{subsec:clustering}Clustering of solutions}
-In a recent article where this problem has also been studied \cite{QM2Paper}, it was found that optimal solutions for increasing final times were dominated by cosine functions of increasing frequencies $k\pi t/T$. It was attempted to replicate this result by letting \proc{Grape} optimize seeds on the form $u(t) = A\cos(k\pi t/T)$ for 750 iterations each. By varying $k$ and $A$, the frequency and amplitude of the seeds were varied and their optimized solutions and reached fidelity noted. The results can be seen on figure \ref{fig:Clustering}. As can be seen on the figure, the results do not replicate those found in \cite{QM2Paper} where solutions dominated by different values of $k$ outperform other $k$'s for some interval. Note in particular that the overall highest fidelity was reached for a seed with frequency $k=2$ at $ T\approx 0.93 \text{ms} $, where $ k=5 $ was expected to be the best performing frequency. However, note that both $k=4$ and $k=5$ reach solutions that outperform the other seeds for that particular timescale and that they do so in the expected order (4 before 5). It should also be mentioned that the $k=4$ data span a smaller time interval due to numerical errors in their solutions for $T>0.8 ms$. This is discussed further in section \ref{subsec:numericalLimitations}. \\
 
-To replicate the results found in \cite{QM2Paper}, the system conditions had to be replicated in Composer where the scales are chosen from the requirement $\hbar = m = 1 \Rightarrow \chi = 1\mu m, \, \tau \approx 1.36$ where $\chi$ and $\tau$ are the scales of length and time respectively, such that $x_{SI}=\chi x$ etc. The paper has on the other hand chosen scales such that $\chi = 1 \mu\text{m}$ and $\tau = 1 \text{ms}$ \cite{QEngine}. This results in a conversion factor of $\kappa = 1.36537$ compared to those found in \cite{QEngine} of the following quantities: $\beta_{old} = 1.8299 \rightarrow \beta = 2.5042 = \kappa \beta_{old}$, $p_i \rightarrow \kappa p_i$ where $V(x,u(t)) = \sum_{i=2,4,6} p_i (x-u(t))^i$ is the potential of the system and finally $\tau$. \\
+In a recent article where this problem has also been studied, it was found that optimal solutions for increasing final times were dominated by cosine functions of increasing frequencies $k\pi t/T$. The figure from \cite{QM2Paper} is shown on Fig. \ref{fig:QM2Screenshot}.
+
+To replicate this result in using Quantum Composer, the system conditions had to be rescaled to Composer, where the kinetic factor $\kappa$ is locked at $0.5$, while in the original system it was instead $0.36537$. Thus, the different quantities of the system had to be reworked. This recalculation can be seen in App. \ref{App:System-params}. \\
+
+It was attempted to replicate this result by letting \proc{Grape} optimize seeds on the form $u(t) = A\cos(k\pi t/T)$ for 750 iterations each. By varying $k$ and $A$, the frequency and amplitude of the seeds were varied and their optimized solutions and reached fidelity noted. The results can be seen on Fig. \ref{fig:Clustering}. As can be seen on the figure, the results do not replicate those found in \cite{QM2Paper} where solutions dominated by different values of $k$ outperform other $k$'s for some interval. Note in particular that the overall highest fidelity was reached for a seed with frequency $k=2$ at $ T\approx 0.93 \text{ms} $, where $ k=5 $ was expected to be the best performing frequency. However, note that both $k=4$ and $k=5$ reach solutions that outperform the other seeds for that particular timescale and that they do so in the expected order (4 before 5). 
+
+As is also shown on the figure, seeds with different frequencies do not have the same amplitude. The reason for this is that as the frequency of the seeds increased, it was found that having a too high amplitude caused the state to become numerically unstable and the simulation to not function correctly. This is also the reason that the $k=4$ data spans a smaller time interval due to numerical errors in their solutions for $T>0.8 ms$. \\
 
 \begin{figure}
-	\includegraphics[width=\columnwidth]{graphics/clustering/QM2Clustering.pdf}
-	\caption{Infidelity of \proc{Grape} optimized solutions with initial control $u(t)=A\cos(k\pi t/T)$. The first axis shows the control duration $T$.}
+	\begin{subfigure}{0.9\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{graphics/clustering/QM2Screenshot.png}
+	\end{subfigure}
+	\begin{subfigure}{\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{graphics/clustering/QM2Clustering.pdf}
+	\end{subfigure}
+	\caption{
+		\textbf{Upper}: This figure is taken from \cite{QM2Paper} and shows how optimized controls can be clustered by their projection onto $\cos(k\pi t/T)$. \textbf{Lower}: Infidelity of \proc{Grape} optimized solutions with initial control $u(t)=A\cos(k\pi t/T)$. The first axis shows the control duration $T$.}
 	\label{fig:Clustering}
 \end{figure}
 
-\subsection{\label{subsec:robustness} Robustness of solutions}
-The robustness of optimized solutions wrt. interaction strength or potential scaling was studied in \cite{GroupPaper}. This is interesting since real experiments are often subject to the inherent uncertainties of their equipment e.g. the frequency width of a laser. Since the interatomic interaction in a BEC is dependent on the number of atoms it consists of, it is not surprising that a specific factor $\beta$ is difficult to replicate exactly in the lab. Likewise the trapping potential is created by standing waves of laser light and so it is also subject to some uncertainty in intensity and frequency.  \\
-
-The robustness of optimized solutions was replicated for the same system as the solution clustering. This replication was done by letting \proc{Grape} optimize the same control seed, $u(t)=0.15\cos(5\pi t/T)$, for $300$ iterations and for different durations $T=0.5 \tau$, $T=0.875 \tau$ or $T=1.3 \tau$, noting that these durations are respectively below, near and above the QSL of this system. These optimized solutions were then replayed in either a system with a modified interaction factor $\tilde{\beta} = a_I \beta$ or in a system with a scaled potential $\tilde{V}(x,u(t)) = a_V V(x,u(t))$. The results can be seen on figure \ref{fig:robustness}. As can be seen on the figure, there seems to be an overall trend where the more optimized a solution is for the system, the more sensitive it is to small changes in either the potential or the interaction. Keeping in mind that better solutions are reached for longer durations, this could also be intepreted as how the 'fidelity landscape' becomes increasingly more complex the longer the control duration is. This could make sense since for small durations below the QSL, there could be many 'plateaus' near optimal fidelity. Small changes to the control could possibly change the shape/height of the plateau, but if the changes are small then the optimized solution should still be somewhere on this plateau. On the contrary, for long durations above the QSL, the landscape is more 'spiked' due to some specific solutions being able to reach very high fidelities and this spiked landscape would of course be more affected of changing parameters. \\
-
-\begin{figure}
-	\begin{subfigure}{\columnwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{graphics/robustness/robustness.pdf}
-	\end{subfigure}
-	\begin{subfigure}{\columnwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{graphics/robustness/interactionRobustness.pdf}
-	\end{subfigure}
-	\caption{Examining the robustness of an optimized solution wrt. scaling either the potential (top) or the atomic interaction (bottom).}
-	\label{fig:robustness}
-\end{figure}
 
 As can be seen on figure \ref{fig:Clustering}, there are durations where the different control seeds reach similar levels of fidelity. This could indicate that they find the same or a similar optimized solution. The optimized solutions from figure \ref{fig:Clustering} with control duration $T\approx 0.685$ms are shown in figure \ref{fig:similarSolutions}. As can be seen on this figure, these optimized controls do not look alike despite reaching fidelity. It is most likely due to how different their initial control seeds are and so, one could argue that these seeds are located away from each other in the fidelity landscape. What should be noted though is the connection between seed frequency in $k\pi$ and the number of 'shakes' on the corresponding optimized control function. We see that for $k=2,3,4$ the number of shakes matches this frequency, which also strengthens the hypothesis for why these seeds don't converge to the same control. \\
 
@@ -426,8 +396,8 @@ As can be seen on figure \ref{fig:Clustering}, there are durations where the dif
 		\includegraphics[width=\columnwidth]{graphics/similar_solutions/k5.PNG}
 		\caption{$k=5$}
 	\end{subfigure}
-\caption{Screenshots from Quantum Composer showing \proc{Grape} optimized controls for the same seeds as in figure \ref{fig:Clustering}. First axis is time in scaling units, second axis is potential displacement from $x=0$ in scaling units. Each figure shows the control seed (blue) and \proc{Grape} optimized control (red) for that seed.}
-\label{fig:similarSolutions}
+	\caption{Screenshots from Quantum Composer showing \proc{Grape} optimized controls for the same seeds as in figure \ref{fig:Clustering}. First axis is time in scaling units, second axis is potential displacement from $x=0$ in scaling units. Each figure shows the control seed (blue) and \proc{Grape} optimized control (red) for that seed.}
+	\label{fig:similarSolutions}
 \end{figure}
 
 While examining the optimized solutions it was found that seeds with the same frequency in $k\pi$ would sometimes converge to similar optimized controls. Figure \ref{fig:SimilarTimescales} shows an example of this where the seed $A\cos(3\pi t/T)$ was optimized for different amplitudes $A$ and different durations $T$, yet still reached a very similar optimized solution. Notice also that both of these solutions have 2 shakes in the regime where it was found that optimal solutions were dominated by $\cos(2\pi t/T)$ frequencies \cite{QM2Paper}.
@@ -442,6 +412,25 @@ While examining the optimized solutions it was found that seeds with the same fr
 	\caption{Screenshots of optimized controls of a similar seed for 2 different durations. The axis are read in the same way as in figure \ref{fig:similarSolutions}. Left: $T\approx 0.35$ms, $A=0.33$. Right: $T\approx 0.47$ms, $A=0.50$.}
 	\label{fig:SimilarTimescales}
 \end{figure}
+
+\subsection{\label{subsec:robustness} Robustness of solutions}
+The robustness of optimized solutions wrt. interaction strength or potential scaling was studied in \cite{GroupPaper}. This is interesting since real experiments are often subject to the inherent uncertainties of their equipment e.g. the frequency width of a laser. Since the interatomic interaction in a BEC is dependent on the number of atoms it consists of, it is not surprising that a specific factor $\beta$ is difficult to replicate exactly in the lab. Likewise the trapping potential is created by standing waves of laser light and so it is also subject to some uncertainty in intensity and frequency.  \\
+
+The robustness of optimized solutions was replicated for the same system as the solution clustering. This replication was done by letting \proc{Grape} optimize the same control seed, $u(t)=0.15\cos(5\pi t/T)$, for $300$ iterations and for different durations $T=0.5 \tau$, $T=0.875 \tau$ or $T=1.3 \tau$, noting that these durations are respectively below, near and above the QSL of this system. These optimized solutions were then replayed in either a system with a modified interaction factor $\tilde{\beta} = a_I \beta$ or in a system with a scaled potential $\tilde{V}(x,u(t)) = a_V V(x,u(t))$. The results can be seen on figure \ref{fig:robustness}. As can be seen on the figure, there seems to be an overall trend where the more optimized a solution is for the system, the more sensitive it is to small changes in either the potential or the interaction. Keeping in mind that better solutions are reached for longer durations, this could also be intepreted as how the 'fidelity landscape' becomes increasingly more complex the longer the control duration is. This could make sense since for small durations below the QSL, there could be many 'plateaus' near optimal fidelity. Small changes to the control could possibly change the shape/height of the plateau, but if the changes are small then the optimized solution should still be somewhere on this plateau. On the contrary, for long durations above the QSL, the landscape is more 'spiked' due to some specific solutions being able to reach very high fidelities and this spiked landscape would of course be more affected of changing parameters. \\
+
+\begin{figure}
+	\begin{subfigure}{\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{graphics/robustness/robustness.pdf}
+	\end{subfigure}
+	\begin{subfigure}{\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{graphics/robustness/interactionRobustness.pdf}
+	\end{subfigure}
+	\caption{Examining the robustness of an optimized solution wrt. scaling either the potential (top) or the atomic interaction (bottom).}
+	\label{fig:robustness}
+\end{figure}
+
 
 \section{Strategies}\label{sec:strats}
 % Function vs graph approach
@@ -486,7 +475,6 @@ When calculating the maximum reachable fidelity for some combination of $\beta$ 
 
 Both of these strategies worked well and provided nice seeds for $\proc{Grape}$ to optimize on. Despite some cases where the fidelity changes significantly from small variations of $\beta$, the overall rule seems to be that something that works well for one value of $\beta$ will have a similar fidelity for nearby values of $\beta$ and so this was also used to find a good seed when $\beta$ was larger than $10$, since above this limit the system seemed a lot more sensitive to the initial control function with respect to reaching the highest possible fidelity for that particular combination of $\beta$ and $T$. \\
 
-%TODO Mention how the down-to-up hopes to exploit the energylandscape being more simple
 Measuring the Quantum Speed Limit for the quartic potential involved a combination of 2 strategies: The self-dubbed "up-to-down" and "down-to-up" approaches. \\
 
 \proc{Up-to-down}:
@@ -504,20 +492,20 @@ Measuring the Quantum Speed Limit for the quartic potential involved a combinati
 \end{enumerate}
 The \proc{Up-to-down} procedure was my mainly used method for estimating the QSL of the system shown on Fig. \ref{fig:QSL}.\\
 
-\proc{Down-to-up} works in a similar way to \proc{Up-to-down}, but in a reversed way:
+\proc{Down-to-up} works in a similar way to \proc{Up-to-down}, but in a reversed way.
 \begin{enumerate}
 	\item Pick $T_{down}$ such that it is estimated to lie below the QSL of the system.
 	\item Try a number of different control functions and choose the most promising (i.e. the seed capable of reaching highest fidelity)
 	\item $T$ is raised in small steps, at each step optimized and modified to check if $F~0.99$ is reachable
 	\item The first time $F~0.99$ is reachable, the current $T$ is the estimated QSL for the system.
 \end{enumerate}
+This procedure attempts to exploit that the optimization landscape for \proc{Grape} to traverse is hopefully simpler due to the lower control duration that is then gradually raised in the hopes that the seed has found a potential fidelity peak in the landscape that becomes available for some slightly higher control duration.
 
 %Cos vs Sin funcs
 While reproducing the clustering of optimized controls data seen in Fig. \ref{fig:Clustering}, it became apparent that using cosine functions instead of sine functions could be advantageous for small timescales. One can use that fact that cosine is displaced from 0 at $t=0$ to ones advantage as it places the state on a steep slope of the potential. This generates motion of the state much faster than when initiating with a non-displaced control function. Similarly when the control is done, one can displace the potential such that the state feels rapid deceleration, thus reducing the velocity of the state much faster than if the control was constrained to end at $u(T)=0$. This behavior can also be seen on the optimized controls shown on Fig. \ref{fig:similarSolutions}, where both end points experience rapid displacement away from $x=0$. These advantages are similar to the "back-swing" solution for another quantum control problem described in \cite{QM2Paper}.
 
 \section{QEngine}\label{sec:QEngine}
-%TODO How do I use the QEngine to plot data whatevs? 
-This section describes the work I've done using the QEngine, a C++ library that Composer is build on top of. This is the expert tool compared to the amateur tool that Quantum Composer makes up since it instead of a GUI consists of a libary of C++ methods which is inherently more flexible and customizable than the graphical interface built onto it.
+This section describes the work I've done using the QEngine, a C++ library that Composer is build on top of. This is the expert tool compared to Quantum Composer which fills out the role of amateur tool. Instead of the GUI that Composer offers it is libary of C++ methods, which is inherently more flexible and customizable than the graphical interface built onto it. The QEngine library comes with a number of example files that can be modified to set up a desired system and e.g. a control function with optimization with one of the three available optimizers. The \texttt{DataContainer} class can be assigned to save variables, control functions, etc. and can be saved in either \texttt{.mat} or \texttt{.json} format to later be read by either \proc{Matlab} or anything else, respectively. Similarly to the Composer case, the data gathered using the QEngine is further analyzed and plotted using \proc{Python}. \\
 
 To start off an exploration into the advantages that QEngine offers compared to Quantum Composer, a previously examined problem is replicated using the QEngine. The replicated problem is the periodically shaken potential shown in Fig. \ref{fig:beta} and the QEngine results are included in Fig. \ref{fig:QEngine_nonOPt}. While the 2 tools reach similar results between $\beta = -5, \, ...\, , \, 5$ it cannot generally be said that the 2 tools get the same results when simulating this system.
 \begin{figure}
@@ -534,11 +522,15 @@ In order to explain this difference in behavior, the energies of the first 3 ene
 	\label{fig:QEngine_energydiff}
 \end{figure}
 
-Despite this apperent difference in behavior between the 2 tools, the advantages of using QEngine for quantum control optimization and initial seed exploration is demonstrated with the following setup. Firstly, the system is set up using the \textit{exact} same parameters as in the QM2 \textit{Shake Up} since it is possible to set the kinetic factor $\kappa$ to any value (Remember that in Composer $\kappa$ is locked to $0.5$). Furthermore, the control time was varied between $0.25 ms$ and $1.25 ms$ in steps of $1/64 ms$. With the control duration set, an initial seed $u_{init}(t) = \sin(2\pi t/T)$ was set. This initial seed was altered by adding randomly generated noise to each point of the control vector. The noise was set to be a random number in the interval $[-0.7, 0.7]$. The altered seed was then optimized until the step size of \proc{Grape} was below $10^-8$ and so the iteration cap was turned off in this problem. For each control duration this was repeated $10$ times, so that $10$ seeds with random noise were optimized. The resulting infidelity of these optimized solutions are shown on Fig. \ref{fig:QEngine_noise}. 
+Despite this apperent difference in behavior between the 2 tools, the advantages of using QEngine for quantum control optimization and initial seed exploration is demonstrated with the following setup. Firstly, the system is set up using the \textit{exact} same parameters as in the QM2 \textit{Shake Up} since it is possible to set the kinetic factor $\kappa$ to any value (Remember that in Composer $\kappa$ is locked to $0.5$). Furthermore, the control time was varied between $0.25 ms$ and $1.25 ms$ in steps of $1/32 ms$. With the control durations set, an initial seed 
+\begin{equation}
+	u_{init}(t) = \sin(2\pi t/T)
+\end{equation}
+was set, before a set of 3 seeds were derived from $u_{init}$ but with added random noise. The noise was set to be a random number in the interval $[-0.7, 0.7]$ and was added to each point of the initial control. Each altered seed was then optimized using all three optimizers until the step size was below $10^-8$. The resulting infidelity of these optimized solutions are shown on Fig. \ref{fig:QEngine_noise}, where the best results from Composer in Fig. \ref{fig:Clustering} have been included for reference. From this one seed with added noise, it is possible to calculate many more datapoints and optimize seeds to reach better fidelities than what is possible in Composer, even when \proc{Grape} does the optimization. This is most likely a result of having no iteration cap on the optimizer in the QEngine, but solely have a lower bound on the size of the step taking in each iteration. This outperformance of Composer does come at the cost of a considerable computation time of around $10$ hours to run the code on a laptop with a $1.51$ GHz CPU.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/qengine/noiseDemoInf.pdf}
-	\caption{Infidelities of \proc{Grape} optimized solutions starting from the same seed $u_{init}$ with added random noise. }
+	\caption{Infidelities of solutions optimized using each of the 3 optimizers available in the QEngine. All seeds are generated from the same control function, $u_{init}$, where random noise is then added before optimization. }
 	\label{fig:QEngine_noise}
 \end{figure}
 
@@ -552,6 +544,7 @@ Here, I will attempt to list some of the pros and cons of both tools.
 	\item[\bf+] 3 Optimization algorithms
 	\item[\bf+] Superior data gathering capabilities
 	\item[\bf{--}] Data must be plotted seperately
+	\item[\bf{--}] Data gathering can be \textit{very} time consuming
 	\item[\bf{--}] Steep learning curve
 	\item[\bf{--}] Difficult installation process
 \end{itemize}
@@ -561,13 +554,15 @@ Here, I will attempt to list some of the pros and cons of both tools.
 	\item[\bf+] Many visualization options
 	\item[\bf+] Intuitive to explore a given system
 	\item[\bf+] Graph node to drag out a control function
+	\item[\bf+] Simulating and optimizing is usually fast
 	\item[\bf{--}] Limited flexibility and customization
 	\item[\bf{--}] Much data must be manually gathered
 	\item[\bf{--}] Some data cannot be exported from the program
 \end{itemize}
 
-%TODO Overvej om Composer gør QEngine nemmere at overskue, og hvorvidt man kan udvikle en kombineret strategi hvor man finder et godt seed i Composer og tilfører noise og optimiering fra andre algoritmer i QEngine.
-Based on the considerations above it is concluded that Quantum Composer is preferable to use as an exploration tool. It is fast to set up, relatively easy to use and most importantly it is very good at visualizing the simulation through its different kinds of plotting nodes. An example of this exploration could be a physicist trying to simulate an experiment to get a feeling for what kind of settings the experimental aperture should be capable of. With the current state of Quantum Composer, I find it advantageous to use the QEngine for any kind of simulation where more than around 10 datapoints are desired. While the QEngine has a vastly steeper learning curve, it is also that much more designed for generating large amounts of data and efficient calculations. 
+Based on the considerations above it is concluded that Quantum Composer is preferable to use as an exploration tool. It is fast to set up, relatively easy to use and most importantly it is very good at visualizing the simulation through its different kinds of plotting nodes. An example of this exploration could be a physicist trying to simulate an experiment to get a feeling for what kind of settings the experimental aperture should be capable of. With the current state of Quantum Composer, I find it advantageous to use the QEngine for any kind of simulation where more than around 10 datapoints are desired. While the QEngine has a vastly steeper learning curve, it is also that much more designed for generating large amounts of data and efficient calculations. It should also be mentioned that it is my personal experience that having worked or used Composer before working with the QEngine might have eased the learning curve of working with the QEngine. This is because many of the nodes in Composer correspond to a single class in the QEngine library and so one can use the intuition of how the nodes are connected in Composer to find out how to set up a system in the QEngine. The example files provided with the library are also of great help to get started.\\
+
+It could also be advantageous to combine the playful, visual and fast elements that Composer has, with the more systematic, flexible and superior data gathering of the QEngine. One way to possible exploit the best of both these tools could be to use Quantum Composer for globally exploring a given system through the intuitive and playful graph control node. Any promising candidates for good seeds could be exported from Composer in the \texttt{.csv} format to be read by a QEngine script, where noise and other more local optimization approaches could be utilized.
 
 These considerations also give rise to a number of suggestions for desirable features for Quantum Composer in order to make it more attractive to use as an expert tool. Most of these points are a result of a brainstorming/discussion session with Shaeema and Tiantian.
 
@@ -601,7 +596,10 @@ However, what has also become apparent while working with $\proc{Grape}$ is that
 
 As described in section \ref{subsec:numericalLimitations}, some of the ways to explore this problem are blocked by numerical instabilities. What has not yet been tested is how changing the discretized space or discretized timescale (i.e. by adding more points and/or having a larger space) could potentially solve some of these problems. What has been found though, is that changing these parameters also introduce much higher variance to either ground or 1st excited state and so do not currently seem like viable strategy for solving this numerical problem, although it cannot be excluded either.
 
-%TODO Remember that the uncertainty of energies is due to the way the spectrum is calculated, and so it should technecally be recalculated each time the beta value is updated.
+%TODO Remember that the uncertainty of energies is due to the way the spectrum is calculated, and so it should technecally be recalculated each time the beta value is updated to minimize variance.
+
+%TODO Mention how this is a QSL estimate and that it was only optimized for 100 iterations of Grape due to the way sampling data in Composer Works, therefore, it would be a matter of trying more seeds and optimizing for longer to find a presumably even lower estimate
+%TODO Also mention how the variance is pretty high for this setup and not suitable for betas far away from 0
 
 \section{Conclusion}\label{sec:conclusion}
 It has been demonstrated that the behavior of BECs are sensitive to the parameters $\beta$ and $T$. As it has been shown in Fig. \ref{fig:HO}, this changed behavior compared to a single particle can be beneficial and capable of reaching higher fidelity than is otherwise possible. On the other hand it is also apparent that $\beta$ introduces an unpredictability into the system as well as numerical inaccuracy of the Hamiltonian eigenstates. It has also been shown that the $\beta$ term in \eqref{eq:Hbec} increases the QSL up to a estimated value of 2 times that of a single particle for the case $\beta=25$. It was also attempted to cluster the performance of $\cos(k\pi t/T)$ control seeds to the frequency $k$, although the data shown in Fig. \ref{fig:Clustering} shown that the seed frequency and optimized performance are not connected in a straightforward manner. What seems more promising is analyzing the number shakes in the optimized solutions and clustering these. The robustness of some optimized solutions have been explored both regarding a scaled potential and a scaled atomic interaction, as is shown in Fig. \ref{fig:robustness}.
@@ -622,7 +620,10 @@ Future aspects of this problem that could be interesting to research include:
 \bibliography{thebibliography}
 
 \appendix
-\section{System parameters}\label{sec:System-params}
+\section{System parameters}\label{App:System-params}
 %TODO Fill me out with system specific stuff
+
+%TODO From QM2 -> Composer
+chosen from the requirement $\hbar = m = 1 \Rightarrow \chi = 1\mu m, \, \tau \approx 1.36$ where $\chi$ and $\tau$ are the scales of length and time respectively, such that $x_{SI}=\chi x$ etc. The paper has on the other hand chosen scales such that $\chi = 1 \mu\text{m}$ and $\tau = 1 \text{ms}$ \cite{QEngine}. This results in a conversion factor of $\kappa = 1.36537$ compared to those found in \cite{QEngine} of the following quantities: $\beta_{old} = 1.8299 \rightarrow \beta = 2.5042 = \kappa \beta_{old}$, $p_i \rightarrow \kappa p_i$ where $V(x,u(t)) = \sum_{i=2,4,6} p_i (x-u(t))^i$ is the potential of the system and finally $\tau$. \\
 
 \end{document}

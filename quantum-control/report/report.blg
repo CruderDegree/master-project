@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2019/W32TeX)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: report.aux
 The style file: apsrev4-1.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -31,45 +31,45 @@ Control: production of article title (-1) disabled
 Control: page (0) single
 Control: year (1) truncated
 Control: production of eprint (0) enabled
-You've used 9 entries,
+You've used 10 entries,
             5847 wiz_defined-function locations,
-            1675 strings with 16611 characters,
-and the built_in function-call counts, 8980 in all, are:
-= -- 478
-> -- 287
-< -- 84
-+ -- 91
-- -- 89
-* -- 1484
-:= -- 827
-add.period$ -- 8
-call.type$ -- 9
-change.case$ -- 29
-chr.to.int$ -- 17
-cite$ -- 9
-duplicate$ -- 853
-empty$ -- 588
-format.name$ -- 161
-if$ -- 1726
+            1687 strings with 16898 characters,
+and the built_in function-call counts, 10244 in all, are:
+= -- 545
+> -- 334
+< -- 93
++ -- 105
+- -- 101
+* -- 1703
+:= -- 941
+add.period$ -- 9
+call.type$ -- 10
+change.case$ -- 33
+chr.to.int$ -- 18
+cite$ -- 10
+duplicate$ -- 968
+empty$ -- 678
+format.name$ -- 188
+if$ -- 1980
 int.to.chr$ -- 1
-int.to.str$ -- 16
-missing$ -- 115
-newline$ -- 73
-num.names$ -- 21
-pop$ -- 347
+int.to.str$ -- 17
+missing$ -- 130
+newline$ -- 76
+num.names$ -- 24
+pop$ -- 391
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 40
 quote$ -- 0
-skip$ -- 306
+skip$ -- 346
 stack$ -- 0
-substring$ -- 183
-swap$ -- 836
-text.length$ -- 34
+substring$ -- 206
+swap$ -- 956
+text.length$ -- 40
 text.prefix$ -- 0
 top$ -- 10
-type$ -- 124
+type$ -- 141
 warning$ -- 1
-while$ -- 26
+while$ -- 29
 width$ -- 0
-write$ -- 111
+write$ -- 119
 (There were 2 error messages)

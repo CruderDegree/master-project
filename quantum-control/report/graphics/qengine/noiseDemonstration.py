@@ -16,6 +16,29 @@ data = jsonReader.readJson(datafilename)
 
 fig, ax = plt.subplots()
 
+# Plot highest fidelities from Composer Clustering
+CompData = open("clustering_best.txt","r")
+scale = 0.5/0.36537 #Conversion scale for time --> Time[ms]
+T = []
+inF = []
+CompData.readline()
+line = CompData.readline()
+while(line):
+    words = line.split("\t")
+    try:
+        T.append(float(words[0]) * scale)
+    except:
+        break
+    try:
+        inF.append(1 - float(words[1]))
+    except:
+        T = T[0:-1]
+        break
+    line = CompData.readline()
+CompData.close()
+plotlabel = "Composer"
+ax.plot(T, inF,".-", color="orangered", label=plotlabel)
+
 ## Read durations
 durations = data["durations"]
 iterations = int(data["noise_iter"])

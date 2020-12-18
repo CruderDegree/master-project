@@ -4,6 +4,7 @@ from numpy import arange
 #ks = [2, 3, 4, 5]
 
 combinations = [(2, 0.5), (3, 0.33), (4,0.4), (5,0.15)]
+colorDict = {2:"tab:red", 3:"tab:blue", 4:"tab:green", 5:"tab:purple"}
 scale = 0.5/0.36537 #Conversion scale for time --> Time[ms]
 basefilename = "QM2Clustering"
 
@@ -34,7 +35,7 @@ for comb in combinations:
         line = data.readline()
     data.close()
     plotlabel = r"$k:" + str(k) + ", A:" + str(A) +"$"
-    plt.plot(T, inF,".-", label=plotlabel)
+    plt.plot(T, inF,".-", color=colorDict[k], label=plotlabel)
     
 # Edit fig
 plt.xlabel("T [ms]")
