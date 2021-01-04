@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.15)  18 DEC 2020 20:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.15)  4 JAN 2021 10:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,6 +788,8 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 101.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 101.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
 
 Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
@@ -799,260 +801,264 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
  []
 
 
-LaTeX Warning: Reference `subsec:obs' on page 1 undefined on input line 109.
-
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 112.
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
-<graphics/stateAnalysis/GroundstateBeta.pdf, id=92, 462.52798pt x 346.89601pt>
+<graphics/stateAnalysis/GroundstateBeta.pdf, id=93, 462.52798pt x 346.89601pt>
 File: graphics/stateAnalysis/GroundstateBeta.pdf Graphic file (type pdf)
 <use graphics/stateAnalysis/GroundstateBeta.pdf>
 Package pdftex.def Info: graphics/stateAnalysis/GroundstateBeta.pdf  used on in
-put line 125.
+put line 121.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-<graphics/stateAnalysis/ExcitedstateBeta.pdf, id=93, 462.52798pt x 346.89601pt>
+<graphics/stateAnalysis/ExcitedstateBeta.pdf, id=94, 462.52798pt x 346.89601pt>
 
 File: graphics/stateAnalysis/ExcitedstateBeta.pdf Graphic file (type pdf)
 <use graphics/stateAnalysis/ExcitedstateBeta.pdf>
 Package pdftex.def Info: graphics/stateAnalysis/ExcitedstateBeta.pdf  used on i
-nput line 128.
+nput line 124.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--139
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
  []
 
 [1{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 139.
+ on input line 137.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 156--158
+Underfull \hbox (badness 10000) in paragraph at lines 149--151
 
  []
 
-[2 <./graphics/stateAnalysis/GroundstateBeta.pdf> <./graphics/stateAnalysis/Exc
-itedstateBeta.pdf
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
+
+ []
+
+(./workflow.pdf_tex
+<workflow.pdf, id=125, page=1, 694.64383pt x 315.6361pt>
+File: workflow.pdf Graphic file (type pdf)
+<use workflow.pdf, page 1>
+Package pdftex.def Info: workflow.pdf , page1 used on input line 53.
+(pdftex.def)             Requested size: 510.0pt x 231.7417pt.
+) [2 <./graphics/stateAnalysis/GroundstateBeta.pdf> <./graphics/stateAnalysis/E
+xcitedstateBeta.pdf
 
 pdfTeX warning: pdflatex.exe (file ./graphics/stateAnalysis/ExcitedstateBeta.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<graphics/composerScreens/composerWide.png, id=197, 672.71326pt x 367.97475pt>
+<graphics/composerScreens/composerWide.png, id=199, 672.71326pt x 367.97475pt>
 File: graphics/composerScreens/composerWide.png Graphic file (type png)
 <use graphics/composerScreens/composerWide.png>
 Package pdftex.def Info: graphics/composerScreens/composerWide.png  used on inp
-ut line 230.
+ut line 176.
 (pdftex.def)             Requested size: 510.0pt x 278.9787pt.
-<graphics/stateAnalysis/GroundstateGrid.pdf, id=200, 462.52798pt x 346.89601pt>
+<graphics/stateAnalysis/GroundstateGrid.pdf, id=202, 462.52798pt x 346.89601pt>
 
 File: graphics/stateAnalysis/GroundstateGrid.pdf Graphic file (type pdf)
 <use graphics/stateAnalysis/GroundstateGrid.pdf>
 Package pdftex.def Info: graphics/stateAnalysis/GroundstateGrid.pdf  used on in
-put line 247.
+put line 193.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
- [3]
-<graphics/stateAnalysis/PerformanceTime.pdf, id=217, 462.52798pt x 346.89601pt>
+<graphics/stateAnalysis/PerformanceTime.pdf, id=205, 462.52798pt x 346.89601pt>
 
 File: graphics/stateAnalysis/PerformanceTime.pdf Graphic file (type pdf)
 <use graphics/stateAnalysis/PerformanceTime.pdf>
 Package pdftex.def Info: graphics/stateAnalysis/PerformanceTime.pdf  used on in
-put line 256.
+put line 202.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
- [4 <./graphics/composerScreens/composerWide.PNG> <./graphics/stateAnalysis/Gro
-undstateGrid.pdf> <./graphics/stateAnalysis/PerformanceTime.pdf
 
-pdfTeX warning: pdflatex.exe (file ./graphics/stateAnalysis/PerformanceTime.pdf
-): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
 
  []
 
+[3] [4 <./workflow.pdf> <./graphics/composerScreens/composerWide.PNG>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 223.
 
- []
-
-<graphics/stateAnalysis/Energylevels.pdf, id=293, 462.52798pt x 346.89601pt>
+<graphics/stateAnalysis/Energylevels.pdf, id=301, 462.52798pt x 346.89601pt>
 File: graphics/stateAnalysis/Energylevels.pdf Graphic file (type pdf)
 <use graphics/stateAnalysis/Energylevels.pdf>
 Package pdftex.def Info: graphics/stateAnalysis/Energylevels.pdf  used on input
- line 280.
+ line 225.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-<graphics/clustering/QM2Clusteringk4A04T06178-2.PNG, id=296, 510.708pt x 295.70
+<graphics/clustering/QM2Clusteringk4A04T06178-2.PNG, id=304, 510.708pt x 295.70
 474pt>
 File: graphics/clustering/QM2Clusteringk4A04T06178-2.PNG Graphic file (type png
 )
 <use graphics/clustering/QM2Clusteringk4A04T06178-2.PNG>
 Package pdftex.def Info: graphics/clustering/QM2Clusteringk4A04T06178-2.PNG  us
-ed on input line 289.
+ed on input line 234.
 (pdftex.def)             Requested size: 110.69925pt x 64.09416pt.
-<graphics/clustering/QM2Clusteringk5A015T07475-2.PNG, id=297, 514.3215pt x 298.
+<graphics/clustering/QM2Clusteringk5A015T07475-2.PNG, id=305, 514.3215pt x 298.
 11375pt>
 File: graphics/clustering/QM2Clusteringk5A015T07475-2.PNG Graphic file (type pn
 g)
 <use graphics/clustering/QM2Clusteringk5A015T07475-2.PNG>
 Package pdftex.def Info: graphics/clustering/QM2Clusteringk5A015T07475-2.PNG  u
-sed on input line 292.
+sed on input line 237.
 (pdftex.def)             Requested size: 110.69925pt x 64.16144pt.
-[5 <./graphics/stateAnalysis/Energylevels.pdf> <./graphics/clustering/QM2Cluste
-ringk4A04T06178-2.PNG> <./graphics/clustering/QM2Clusteringk5A015T07475-2.PNG>]
-<graphics/exploration/nonOptBeta.pdf, id=341, 462.52798pt x 346.89601pt>
+[5 <./graphics/stateAnalysis/GroundstateGrid.pdf> <./graphics/stateAnalysis/Per
+formanceTime.pdf
+
+pdfTeX warning: pdflatex.exe (file ./graphics/stateAnalysis/PerformanceTime.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./graphics/stateAnalysis/Energylevels.pdf
+
+pdfTeX warning: pdflatex.exe (file ./graphics/stateAnalysis/Energylevels.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+> <./graphics/clustering/QM2Clusteringk4A04T06178-2.PNG> <./graphics/clustering
+/QM2Clusteringk5A015T07475-2.PNG>]
+<graphics/exploration/nonOptBeta.pdf, id=409, 462.52798pt x 346.89601pt>
 File: graphics/exploration/nonOptBeta.pdf Graphic file (type pdf)
 <use graphics/exploration/nonOptBeta.pdf>
 Package pdftex.def Info: graphics/exploration/nonOptBeta.pdf  used on input lin
-e 307.
+e 252.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-<graphics/exploration/betaNonOptFidelityBeta7.PNG, id=342, 349.90726pt x 395.07
+<graphics/exploration/betaNonOptFidelityBeta7.PNG, id=410, 349.90726pt x 395.07
 6pt>
 File: graphics/exploration/betaNonOptFidelityBeta7.PNG Graphic file (type png)
 <use graphics/exploration/betaNonOptFidelityBeta7.PNG>
 Package pdftex.def Info: graphics/exploration/betaNonOptFidelityBeta7.PNG  used
- on input line 314.
+ on input line 259.
 (pdftex.def)             Requested size: 110.69925pt x 124.98611pt.
-<graphics/exploration/betaNonOptFidelityBeta12.PNG, id=343, 443.256pt x 498.663
+<graphics/exploration/betaNonOptFidelityBeta12.PNG, id=411, 443.256pt x 498.663
 pt>
 File: graphics/exploration/betaNonOptFidelityBeta12.PNG Graphic file (type png)
 
 <use graphics/exploration/betaNonOptFidelityBeta12.PNG>
 Package pdftex.def Info: graphics/exploration/betaNonOptFidelityBeta12.PNG  use
-d on input line 317.
+d on input line 262.
 (pdftex.def)             Requested size: 110.69925pt x 124.53609pt.
-<graphics/exploration/betaTHO.pdf, id=347, 462.52798pt x 346.89601pt>
+<graphics/exploration/betaTHO.pdf, id=415, 462.52798pt x 346.89601pt>
 File: graphics/exploration/betaTHO.pdf Graphic file (type pdf)
 <use graphics/exploration/betaTHO.pdf>
-Package pdftex.def Info: graphics/exploration/betaTHO.pdf  used on input line 3
-30.
+Package pdftex.def Info: graphics/exploration/betaTHO.pdf  used on input line 2
+75.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--338
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--283
 
  []
 
-[6 <./graphics/exploration/nonOptBeta.pdf> <./graphics/exploration/betaNonOptFi
-delityBeta7.PNG> <./graphics/exploration/betaNonOptFidelityBeta12.PNG> <./graph
-ics/exploration/betaTHO.pdf
-
-pdfTeX warning: pdflatex.exe (file ./graphics/exploration/betaTHO.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
->]
-<graphics/exploration/QSL.pdf, id=425, 462.52798pt x 346.89601pt>
+<graphics/exploration/QSL.pdf, id=419, 462.52798pt x 346.89601pt>
 File: graphics/exploration/QSL.pdf Graphic file (type pdf)
 <use graphics/exploration/QSL.pdf>
-Package pdftex.def Info: graphics/exploration/QSL.pdf  used on input line 340.
+Package pdftex.def Info: graphics/exploration/QSL.pdf  used on input line 285.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-<graphics/exploration/reachable_neg_beta.pdf, id=429, 462.52798pt x 346.89601pt
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./graphics/exploration/nonOptBeta.pdf> <./graphics/exploration/betaNonOptFi
+delityBeta7.PNG> <./graphics/exploration/betaNonOptFidelityBeta12.PNG>]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 291.
+
+<graphics/exploration/reachable_neg_beta.pdf, id=463, 462.52798pt x 346.89601pt
 >
 File: graphics/exploration/reachable_neg_beta.pdf Graphic file (type pdf)
 <use graphics/exploration/reachable_neg_beta.pdf>
 Package pdftex.def Info: graphics/exploration/reachable_neg_beta.pdf  used on i
-nput line 349.
+nput line 294.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
-
-LaTeX Warning: Reference `fig:QM2Screenshot' on page 7 undefined on input line 
-357.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
-<graphics/clustering/QM2Screenshot.png, id=434, 690.1785pt x 450.483pt>
-File: graphics/clustering/QM2Screenshot.png Graphic file (type png)
-<use graphics/clustering/QM2Screenshot.png>
-Package pdftex.def Info: graphics/clustering/QM2Screenshot.png  used on input l
-ine 368.
-(pdftex.def)             Requested size: 221.3985pt x 144.50806pt.
-<graphics/clustering/QM2Clustering.pdf, id=435, 462.52798pt x 346.89601pt>
-File: graphics/clustering/QM2Clustering.pdf Graphic file (type pdf)
-<use graphics/clustering/QM2Clustering.pdf>
-Package pdftex.def Info: graphics/clustering/QM2Clustering.pdf  used on input l
-ine 372.
-(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
+[7 <./graphics/exploration/betaTHO.pdf> <./graphics/exploration/QSL.pdf
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-
- []
-
-[7 <./graphics/exploration/QSL.pdf> <./graphics/exploration/reachable_neg_beta.
-pdf
+pdfTeX warning: pdflatex.exe (file ./graphics/exploration/QSL.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+> <./graphics/exploration/reachable_neg_beta.pdf
 
 pdfTeX warning: pdflatex.exe (file ./graphics/exploration/reachable_neg_beta.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
 >]
+<graphics/clustering/QM2Screenshot.png, id=590, 690.1785pt x 450.483pt>
+File: graphics/clustering/QM2Screenshot.png Graphic file (type png)
+<use graphics/clustering/QM2Screenshot.png>
+Package pdftex.def Info: graphics/clustering/QM2Screenshot.png  used on input l
+ine 313.
+(pdftex.def)             Requested size: 221.3985pt x 144.50806pt.
+<graphics/clustering/QM2Clustering.pdf, id=591, 462.52798pt x 346.89601pt>
+File: graphics/clustering/QM2Clustering.pdf Graphic file (type pdf)
+<use graphics/clustering/QM2Clustering.pdf>
+Package pdftex.def Info: graphics/clustering/QM2Clustering.pdf  used on input l
+ine 317.
+(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 381.
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
 
-<graphics/similar_solutions/k2.PNG, id=525, 213.79875pt x 238.491pt>
+ []
+
+<graphics/similar_solutions/k2.PNG, id=597, 213.79875pt x 238.491pt>
 File: graphics/similar_solutions/k2.PNG Graphic file (type png)
 <use graphics/similar_solutions/k2.PNG>
 Package pdftex.def Info: graphics/similar_solutions/k2.PNG  used on input line 
-384.
+329.
 (pdftex.def)             Requested size: 98.3985pt x 109.76176pt.
-<graphics/similar_solutions/k3.PNG, id=526, 358.941pt x 404.10976pt>
+<graphics/similar_solutions/k3.PNG, id=598, 358.941pt x 404.10976pt>
 File: graphics/similar_solutions/k3.PNG Graphic file (type png)
 <use graphics/similar_solutions/k3.PNG>
 Package pdftex.def Info: graphics/similar_solutions/k3.PNG  used on input line 
-388.
+333.
 (pdftex.def)             Requested size: 98.3985pt x 110.77596pt.
-<graphics/similar_solutions/k4.PNG, id=527, 339.06676pt x 378.81525pt>
+<graphics/similar_solutions/k4.PNG, id=599, 339.06676pt x 378.81525pt>
 File: graphics/similar_solutions/k4.PNG Graphic file (type png)
 <use graphics/similar_solutions/k4.PNG>
 Package pdftex.def Info: graphics/similar_solutions/k4.PNG  used on input line 
-392.
+337.
 (pdftex.def)             Requested size: 98.3985pt x 109.93452pt.
-<graphics/similar_solutions/k5.PNG, id=528, 261.3765pt x 293.898pt>
+<graphics/similar_solutions/k5.PNG, id=600, 261.3765pt x 293.898pt>
 File: graphics/similar_solutions/k5.PNG Graphic file (type png)
 <use graphics/similar_solutions/k5.PNG>
 Package pdftex.def Info: graphics/similar_solutions/k5.PNG  used on input line 
-396.
+341.
 (pdftex.def)             Requested size: 98.3985pt x 110.64198pt.
-<graphics/similar_solutions/T02563k3A033.PNG, id=533, 358.33875pt x 402.90524pt
+<graphics/similar_solutions/T02563k3A033.PNG, id=605, 358.33875pt x 402.90524pt
 >
 File: graphics/similar_solutions/T02563k3A033.PNG Graphic file (type png)
 <use graphics/similar_solutions/T02563k3A033.PNG>
 Package pdftex.def Info: graphics/similar_solutions/T02563k3A033.PNG  used on i
-nput line 407.
+nput line 352.
 (pdftex.def)             Requested size: 98.3985pt x 110.63635pt.
-<graphics/similar_solutions/T03450k3A050.PNG, id=534, 378.81525pt x 425.79076pt
+<graphics/similar_solutions/T03450k3A050.PNG, id=606, 378.81525pt x 425.79076pt
 >
 File: graphics/similar_solutions/T03450k3A050.PNG Graphic file (type png)
 <use graphics/similar_solutions/T03450k3A050.PNG>
 Package pdftex.def Info: graphics/similar_solutions/T03450k3A050.PNG  used on i
-nput line 410.
+nput line 355.
 (pdftex.def)             Requested size: 98.3985pt x 110.59903pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
@@ -1061,52 +1067,57 @@ ng.pdf> <./graphics/similar_solutions/k2.PNG> <./graphics/similar_solutions/k3.
 PNG> <./graphics/similar_solutions/k4.PNG> <./graphics/similar_solutions/k5.PNG
 > <./graphics/similar_solutions/T02563k3A033.PNG> <./graphics/similar_solutions
 /T03450k3A050.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 1466) in paragraph at lines 364--365
+\OT1/cmr/m/n/10 in the sys-tem in the Com-poser im-ple-men-ta-tion of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
-<graphics/robustness/robustness.pdf, id=589, 462.52798pt x 346.89601pt>
+<graphics/robustness/robustness.pdf, id=662, 462.52798pt x 346.89601pt>
 File: graphics/robustness/robustness.pdf Graphic file (type pdf)
 <use graphics/robustness/robustness.pdf>
 Package pdftex.def Info: graphics/robustness/robustness.pdf  used on input line
- 424.
+ 369.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-<graphics/robustness/interactionRobustness.pdf, id=590, 462.52798pt x 346.89601
+<graphics/robustness/interactionRobustness.pdf, id=663, 462.52798pt x 346.89601
 pt>
 File: graphics/robustness/interactionRobustness.pdf Graphic file (type pdf)
 <use graphics/robustness/interactionRobustness.pdf>
 Package pdftex.def Info: graphics/robustness/interactionRobustness.pdf  used on
- input line 428.
+ input line 373.
 (pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
-Underfull \hbox (badness 1112) in paragraph at lines 437--438
+Underfull \hbox (badness 1112) in paragraph at lines 382--383
 []\OT1/cmr/m/n/10 Throughout work-ing with this project, there has
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
-<graphics/composerScreens/ScalarExpressionNode.png, id=592, 292.09125pt x 289.6
+<graphics/composerScreens/ScalarExpressionNode.png, id=665, 292.09125pt x 289.6
 8225pt>
 File: graphics/composerScreens/ScalarExpressionNode.png Graphic file (type png)
 
 <use graphics/composerScreens/ScalarExpressionNode.png>
 Package pdftex.def Info: graphics/composerScreens/ScalarExpressionNode.png  use
-d on input line 442.
+d on input line 387.
 (pdftex.def)             Requested size: 98.3985pt x 97.58452pt.
-<graphics/composerScreens/ControlNode.png, id=593, 413.1435pt x 364.9635pt>
+<graphics/composerScreens/ControlNode.png, id=666, 413.1435pt x 364.9635pt>
 File: graphics/composerScreens/ControlNode.png Graphic file (type png)
 <use graphics/composerScreens/ControlNode.png>
 Package pdftex.def Info: graphics/composerScreens/ControlNode.png  used on inpu
-t line 448.
+t line 393.
 (pdftex.def)             Requested size: 110.69925pt x 97.78966pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 (./graphics/strategies/functionAppr.pdf_tex
-<graphics/strategies/functionAppr.pdf, id=595, page=1, 116.3852pt x 72.65532pt>
+<graphics/strategies/functionAppr.pdf, id=668, page=1, 116.3852pt x 72.65532pt>
 
 File: graphics/strategies/functionAppr.pdf Graphic file (type pdf)
 <use graphics/strategies/functionAppr.pdf, page 1>
@@ -1114,44 +1125,44 @@ Package pdftex.def Info: graphics/strategies/functionAppr.pdf , page1 used on i
 nput line 52.
 (pdftex.def)             Requested size: 246.0pt x 153.58174pt.
 )
-Underfull \hbox (badness 1019) in paragraph at lines 465--466
+Underfull \hbox (badness 1019) in paragraph at lines 410--411
 \OT1/cmr/m/n/10 to op-ti-mize each step be-fore go-ing fur-ther. Since
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--466
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
-(./graphics/strategies/graphAppr.pdf_tex
-<graphics/strategies/graphAppr.pdf, id=598, page=1, 310.72363pt x 169.70879pt>
-File: graphics/strategies/graphAppr.pdf Graphic file (type pdf)
-<use graphics/strategies/graphAppr.pdf, page 1>
-Package pdftex.def Info: graphics/strategies/graphAppr.pdf , page1 used on inpu
-t line 53.
-(pdftex.def)             Requested size: 246.0pt x 134.35849pt.
-) [9 <./graphics/robustness/robustness.pdf> <./graphics/robustness/interactionR
-obustness.pdf
+[9 <./graphics/robustness/robustness.pdf> <./graphics/robustness/interactionRob
+ustness.pdf
 
 pdfTeX warning: pdflatex.exe (file ./graphics/robustness/interactionRobustness.
 pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 473.
+ on input line 411.
 
-
-Underfull \hbox (badness 2310) in paragraph at lines 476--477
+(./graphics/strategies/graphAppr.pdf_tex
+<graphics/strategies/graphAppr.pdf, id=763, page=1, 310.72363pt x 169.70879pt>
+File: graphics/strategies/graphAppr.pdf Graphic file (type pdf)
+<use graphics/strategies/graphAppr.pdf, page 1>
+Package pdftex.def Info: graphics/strategies/graphAppr.pdf , page1 used on inpu
+t line 53.
+(pdftex.def)             Requested size: 246.0pt x 134.35849pt.
+)
+Underfull \hbox (badness 2310) in paragraph at lines 421--422
 \OT1/cmr/m/n/10 cases where the fi-delity changes sig-nif-i-cantly from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
 
  []
 
@@ -1162,14 +1173,54 @@ rategies/graphAppr.pdf
 pdfTeX warning: pdflatex.exe (file ./graphics/strategies/graphAppr.pdf): PDF in
 clusion: multiple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 1924) in paragraph at lines 493--494
+Underfull \hbox (badness 1924) in paragraph at lines 438--439
 \OT1/cmr/m/n/10 The \OT1/cmr/m/sc/10 Up-to-down \OT1/cmr/m/n/10 pro-ce-dure was
  my mainly used
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 493--494
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
+
+ []
+
+<graphics/qengine/comparison.pdf, id=784, 462.52798pt x 346.89601pt>
+File: graphics/qengine/comparison.pdf Graphic file (type pdf)
+<use graphics/qengine/comparison.pdf>
+Package pdftex.def Info: graphics/qengine/comparison.pdf  used on input line 45
+7.
+(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+
+ []
+
+[11 <./graphics/qengine/comparison.pdf>]
+<graphics/stateAnalysis/energyDiffQEngineComp.pdf, id=846, 462.52798pt x 346.89
+601pt>
+File: graphics/stateAnalysis/energyDiffQEngineComp.pdf Graphic file (type pdf)
+<use graphics/stateAnalysis/energyDiffQEngineComp.pdf>
+Package pdftex.def Info: graphics/stateAnalysis/energyDiffQEngineComp.pdf  used
+ on input line 465.
+(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
+<graphics/qengine/noiseDemoInf.pdf, id=854, 462.52798pt x 346.89601pt>
+File: graphics/qengine/noiseDemoInf.pdf Graphic file (type pdf)
+<use graphics/qengine/noiseDemoInf.pdf>
+Package pdftex.def Info: graphics/qengine/noiseDemoInf.pdf  used on input line 
+477.
+(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
+ [12 <./graphics/stateAnalysis/energyDiffQEngineComp.pdf> <./graphics/qengine/n
+oiseDemoInf.pdf
+
+pdfTeX warning: pdflatex.exe (file ./graphics/qengine/noiseDemoInf.pdf): PDF in
+clusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 1028) in paragraph at lines 508--509
+\OT1/cmr/m/n/10 per-sonal opin-ion, hav-ing worked or used Com-poser
  []
 
 
@@ -1177,66 +1228,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
-<graphics/qengine/comparison.pdf, id=712, 462.52798pt x 346.89601pt>
-File: graphics/qengine/comparison.pdf Graphic file (type pdf)
-<use graphics/qengine/comparison.pdf>
-Package pdftex.def Info: graphics/qengine/comparison.pdf  used on input line 51
-2.
-(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--518
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
-<graphics/stateAnalysis/energyDiffQEngineComp.pdf, id=716, 462.52798pt x 346.89
-601pt>
-File: graphics/stateAnalysis/energyDiffQEngineComp.pdf Graphic file (type pdf)
-<use graphics/stateAnalysis/energyDiffQEngineComp.pdf>
-Package pdftex.def Info: graphics/stateAnalysis/energyDiffQEngineComp.pdf  used
- on input line 520.
-(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-[11 <./graphics/qengine/comparison.pdf>]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 526.
-
-<graphics/qengine/noiseDemoInf.pdf, id=776, 462.52798pt x 346.89601pt>
-File: graphics/qengine/noiseDemoInf.pdf Graphic file (type pdf)
-<use graphics/qengine/noiseDemoInf.pdf>
-Package pdftex.def Info: graphics/qengine/noiseDemoInf.pdf  used on input line 
-532.
-(pdftex.def)             Requested size: 246.0pt x 184.49977pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 564--565
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 540--541
 
  []
 
-[12 <./graphics/stateAnalysis/energyDiffQEngineComp.pdf> <./graphics/qengine/no
-iseDemoInf.pdf
-
-pdfTeX warning: pdflatex.exe (file ./graphics/qengine/noiseDemoInf.pdf): PDF in
-clusion: multiple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 592--593
-
- []
-
-
-Underfull \hbox (badness 2253) in paragraph at lines 596--597
-[]\OT1/cmr/m/n/10 However, what has also be-come ap-par-ent while
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--597
-
- []
-
-[13] (./report.bbl
+(./report.bbl [14]
 Underfull \hbox (badness 1184) in paragraph at lines 149--153
  \OT1/cmr/m/n/9 Czarkowski, C. Wei-d-ner, J. Rafner, J. J. S^^\rensen,
  []
@@ -1247,26 +1249,38 @@ Underfull \hbox (badness 1577) in paragraph at lines 149--153
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
+Underfull \hbox (badness 6032) in paragraph at lines 590--592
+[]\OT1/cmr/m/n/10 One can freely de-fine 2 of the 3 quan-ti-ties
+ []
+
+
+Underfull \hbox (badness 3078) in paragraph at lines 590--592
+\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^V[]; ^^V[]; ^^T\OMS/cmsy/m/n/10 g$ \OT1/cm
+r/m/n/10 and the re-main-ing quan-tity will
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--592
 
  []
 
-[14] (./report.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--607
+
+ []
+
+[15] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: A9210C523D4B9EF1D8F41FC2C8AEB8DC;1150.
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 21151 strings out of 479383
- 401930 string characters out of 5873325
- 722220 words of memory out of 5000000
- 37733 multiletter control sequences out of 15000+600000
- 416864 words of font info for 77 fonts, out of 8000000 for 9000
+ 20972 strings out of 479383
+ 398462 string characters out of 5873325
+ 730092 words of memory out of 5000000
+ 37530 multiletter control sequences out of 15000+600000
+ 418996 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,14n,85p,1689b,1857s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 80i,11n,85p,1677b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-di
@@ -1274,25 +1288,26 @@ st/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c
-:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
-fb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2020/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmtt10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000
-.pfb>
-Output written on report.pdf (14 pages, 2437961 bytes).
+mi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
+0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb><c:/
+texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on report.pdf (15 pages, 2472613 bytes).
 PDF statistics:
- 1095 PDF objects out of 1200 (max. 8388607)
- 487 compressed objects within 5 object streams
- 80 named destinations out of 1000 (max. 500000)
- 312 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1208 PDF objects out of 1440 (max. 8388607)
+ 572 compressed objects within 6 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 317 words of extra memory for PDF output out of 10000 (max. 10000000)
 

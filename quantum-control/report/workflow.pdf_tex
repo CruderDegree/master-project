@@ -1,0 +1,78 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'workflow.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{692.04861859bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.45438552)%
+    \put(0.32899182,0.42374171){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.26241962\unitlength}\raggedright \end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{workflow.pdf}}%
+    \put(0.08010082,0.4295761){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.24848587\unitlength}\raggedright \Large{System Setup}\end{minipage}}}%
+    \put(0.12957424,0.16883328){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\hat{H}_{GPE}$}}}%
+    \put(0.08418627,0.07954183){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\psi_0$}}}%
+    \put(0.21281154,0.07954183){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\psi_D$}}}%
+    \put(0.23369802,0.25171344){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u_0(t)$}}}%
+    \put(0.05424486,0.25301609){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\hat{V}$}}}%
+    \put(0.14779924,0.33273573){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\large{$\beta$}}}}%
+    \put(0.24641887,0.33162349){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t$}}}%
+    \put(0.05613182,0.33150771){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\large{$\hat{x}$}}}}%
+    \put(0.43243299,0.14859109){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21785354\unitlength}\raggedright \Large{Simulation}\end{minipage}}}%
+    \put(0.52633568,0.06373634){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$|\psi|^2(t)$}}}%
+    \put(0.42673582,0.06372187){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$F(t)$}}}%
+    \put(0.33872306,0.06804314){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u(t)$}}}%
+    \put(0.43426299,0.27162975){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\gamma$}}}%
+    \put(0.5411965,0.27693932){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\sigma$}}}%
+    \put(0.53707398,0.3704565){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$F_t$}}}%
+    \put(0.34064619,0.32821083){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u_k$}}}%
+    \put(0.61274368,0.32900559){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$u_{k+1}$}}}%
+    \put(0.45499921,0.4458502){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21785354\unitlength}\raggedright \Large{\proc{Grape}}\end{minipage}}}%
+    \put(0.43090122,0.3698496){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$N$}}}%
+    \put(0.81005002,0.18718847){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19297544\unitlength}\raggedright \texttt{Matplotlib}\end{minipage}}}%
+    \put(0.76904236,0.26776131){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\Large{Data Analysis}}}}%
+    \put(0.82457614,0.22074796){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\proc{Python}}}}%
+  \end{picture}%
+\endgroup%
