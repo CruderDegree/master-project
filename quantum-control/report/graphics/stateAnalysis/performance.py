@@ -28,7 +28,9 @@ for i in range(len(timeUp)):
     times[i] -= timeLow[i]
     timesErr[i] = sqrt(timeErrLow[i]*timeErrLow[i] + timeErrUp[i] * timeErrUp[i])
     
-plt.plot(grid, times, 'm-s', markersize=7.5)
+plt.plot(grid, times, 'r-')
+plt.plot(grid, times, 'bs', markersize=5)
+plt.plot([256], [times[2]], 'b*', markersize=15)
 plt.xlabel("Grid size")
 plt.ylabel("Performance time [s]")
 plt.xscale("log", basex=2)
