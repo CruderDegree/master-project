@@ -38,7 +38,7 @@ plt.yscale("log")
 plt.xscale("log")
 plt.ylabel("Infidelity, " + r"$1 - F$")
 plt.tick_params(axis='both', which='both', direction='in', bottom=True, top=True, left=True, right=True)
-plt.legend(loc="best")
+#plt.legend(loc="best")
 
 # Save fig
 plt.savefig(basefilename + ".pdf")

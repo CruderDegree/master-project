@@ -30,6 +30,7 @@ plt.plot([minb, maxb], [1-0.99, 1-0.99], 'r--', linewidth=0.75)
 plt.xlabel("β")
 plt.ylabel("Infidelety 1 - F")
 plt.xlim(minb, maxb)
+plt.ylim([1 - 0.9995, 1 - 0.89])
 plt.legend(loc="best")
 plt.yscale("log") # Log scale
 #plt.xscale("log")

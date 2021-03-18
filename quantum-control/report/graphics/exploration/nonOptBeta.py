@@ -18,7 +18,7 @@ while(line):
 data.close()
 
 plt.plot(beta,F, 's-')
-plt.xlabel("β")
+plt.xlabel(r"Self interaction strength $\beta$ [sim]")
 plt.ylabel("Fidelity at t=T")
 
 plt.savefig(filename+".pdf")

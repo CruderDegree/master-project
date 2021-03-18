@@ -1,0 +1,51 @@
+This file is supposed to help me remember what 
+the different datafiles from QEngine runs where about
+
+composerReplication.json
+Seed was sin(2*pi*t/T)
+3 iterations of noisy seeds w. noise betw. 0.5,-0.5
+gamma was not used, will probably use it next time
+All 3 optimizers were used, Nsteps capped at 3000
+runtime ~ 21171 s
+
+composerReplication-2.json
+Seed 0.5 sin ( 4 * pi * t/T)
+10 iterations, noise was pm 0.4
+gamma 0
+Only Grape, Ncap = 3000
+runtime = 16840 s
+
+composerReplication-3.json
+Seed sin ( pi * t/T)
+10 iterations, noise was pm 0.7
+gamma 0
+Only Grape, Ncap = 3000
+runtime = 19574 s
+
+composerReplication-4.json
+Seed 0.33*cos(2* PI * ts / duration) + 0.20 * cos(3 * PI * ts / duration)
+T = 0.125 to 1.125 (33 steps)
+10 iterations, noise was pm 0.4
+gamma 1e-6 - remember to add it to ctrl problem
+All 3 optimzers, Ncap = 3000
+runtime = 119326 s
+
+composerReplication-2-redone.json
+using same srandseed as composerReplication-2
+Seed 0.5 sin ( 4 * pi * t/T)
+t was 0.125 -- 0.8125
+10 iterations, noise was pm 0.4
+gamma 1e-5
+sigma 2e3, bounds were pm 2
+Only Grape, Ncap = 3000
+runtime = 18193 s
+
+composerReplication-redone.json
+using same srandseed as composerReplication
+Seed sin ( 2 * pi * t/T)
+t was 0.125 -- 0.8125
+5 iterations, noise was pm 0.4
+gamma 1e-5
+sigma 2e3, bounds were pm 2
+All optimizers, Ncap = 3000
+runtime = 20581 s

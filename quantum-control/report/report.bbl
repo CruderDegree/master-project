@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{10}%
+\begin{thebibliography}{13}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -50,6 +50,32 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
+\bibitem [{\citenamefont {Ahmed}\ \emph {et~al.}(2020)\citenamefont {Ahmed},
+  \citenamefont {Jensen}, \citenamefont {Weidner}, \citenamefont {Sørensen},
+  \citenamefont {Mudrich},\ and\ \citenamefont {Sherson}}]{ahmed2020quantum}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~Z.}\ \bibnamefont
+  {Ahmed}}, \bibinfo {author} {\bibfnamefont {J.~H.~M.}\ \bibnamefont
+  {Jensen}}, \bibinfo {author} {\bibfnamefont {C.~A.}\ \bibnamefont {Weidner}},
+  \bibinfo {author} {\bibfnamefont {J.~J.}\ \bibnamefont {Sørensen}}, \bibinfo
+  {author} {\bibfnamefont {M.}~\bibnamefont {Mudrich}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {J.~F.}\ \bibnamefont {Sherson}},\ }\href@noop {}
+  {\enquote {\bibinfo {title} {Quantum composer: A programmable quantum
+  visualization and simulation tool for education and research},}\ } (\bibinfo
+  {year} {2020}),\ \Eprint {http://arxiv.org/abs/2006.07263} {arXiv:2006.07263
+  [physics.ed-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2019)\citenamefont
+  {Sørensen}, \citenamefont {Jensen}, \citenamefont {Heinzel},\ and\
+  \citenamefont {Sherson}}]{QEngine}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Sørensen}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Jensen}},
+  \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Heinzel}}, \ and\
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Sherson}},\ }\href
+  {\doibase 10.1016/j.cpc.2019.04.020} {\bibfield  {journal} {\bibinfo
+  {journal} {Computer Physics Communications}\ }\textbf {\bibinfo {volume}
+  {243}},\ \bibinfo {pages} {135–150} (\bibinfo {year} {2019})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {van Frank}\ \emph {et~al.}(2016)\citenamefont {van
   Frank}, \citenamefont {Bonneau}, \citenamefont {Schmiedmayer}, \citenamefont
   {Hild}, \citenamefont {Gross}, \citenamefont {Cheneau}, \citenamefont
@@ -87,18 +113,19 @@
   {Sørensen}},\ }\emph {\bibinfo {title} {Quantum Control of Ultracold Quantum
   Systems}},\ \href@noop {} {Ph.D. thesis},\ \bibinfo  {school} {Aarhus
   University} (\bibinfo {year} {2018})\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {J\"ager}\ \emph {et~al.}(2014)\citenamefont
-  {J\"ager}, \citenamefont {Reich}, \citenamefont {Goerz}, \citenamefont
-  {Koch},\ and\ \citenamefont {Hohenester}}]{PhysRevA.90.033628}%
+\bibitem [{\citenamefont {Khaneja}\ \emph {et~al.}(2005)\citenamefont
+  {Khaneja}, \citenamefont {Reiss}, \citenamefont {Kehlet}, \citenamefont
+  {Schulte-Herbrüggen},\ and\ \citenamefont {Glaser}}]{KHANEJA2005296}%
   \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
-  {J\"ager}}, \bibinfo {author} {\bibfnamefont {D.~M.}\ \bibnamefont {Reich}},
-  \bibinfo {author} {\bibfnamefont {M.~H.}\ \bibnamefont {Goerz}}, \bibinfo
-  {author} {\bibfnamefont {C.~P.}\ \bibnamefont {Koch}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {U.}~\bibnamefont {Hohenester}},\ }\href {\doibase
-  10.1103/PhysRevA.90.033628} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
-  Rev. A}\ }\textbf {\bibinfo {volume} {90}},\ \bibinfo {pages} {033628}
-  (\bibinfo {year} {2014})}\BibitemShut {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Khaneja}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Reiss}},
+  \bibinfo {author} {\bibfnamefont {C.}~\bibnamefont {Kehlet}}, \bibinfo
+  {author} {\bibfnamefont {T.}~\bibnamefont {Schulte-Herbrüggen}}, \ and\
+  \bibinfo {author} {\bibfnamefont {S.~J.}\ \bibnamefont {Glaser}},\ }\href
+  {\doibase https://doi.org/10.1016/j.jmr.2004.11.004} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Magnetic Resonance}\ }\textbf {\bibinfo
+  {volume} {172}},\ \bibinfo {pages} {296} (\bibinfo {year}
+  {2005})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2018)\citenamefont
   {Sørensen}, \citenamefont {Aranburu}, \citenamefont {Heinzel},\ and\
   \citenamefont {Sherson}}]{GroupPaper}%
@@ -111,18 +138,6 @@
   {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
   {volume} {98}} (\bibinfo {year} {2018}),\
   10.1103/physreva.98.022119}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Sørensen}\ \emph {et~al.}(2019)\citenamefont
-  {Sørensen}, \citenamefont {Jensen}, \citenamefont {Heinzel},\ and\
-  \citenamefont {Sherson}}]{QEngine}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
-  {Sørensen}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Jensen}},
-  \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Heinzel}}, \ and\
-  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Sherson}},\ }\href
-  {\doibase 10.1016/j.cpc.2019.04.020} {\bibfield  {journal} {\bibinfo
-  {journal} {Computer Physics Communications}\ }\textbf {\bibinfo {volume}
-  {243}},\ \bibinfo {pages} {135–150} (\bibinfo {year} {2019})}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Deffner}\ and\ \citenamefont
   {Campbell}(2017)}]{Deffner_2017}%
   \BibitemOpen
@@ -132,20 +147,6 @@
   {journal} {\bibinfo  {journal} {Journal of Physics A: Mathematical and
   Theoretical}\ }\textbf {\bibinfo {volume} {50}},\ \bibinfo {pages} {453001}
   (\bibinfo {year} {2017})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Ahmed}\ \emph {et~al.}(2020)\citenamefont {Ahmed},
-  \citenamefont {Jensen}, \citenamefont {Weidner}, \citenamefont {Sørensen},
-  \citenamefont {Mudrich},\ and\ \citenamefont {Sherson}}]{ahmed2020quantum}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~Z.}\ \bibnamefont
-  {Ahmed}}, \bibinfo {author} {\bibfnamefont {J.~H.~M.}\ \bibnamefont
-  {Jensen}}, \bibinfo {author} {\bibfnamefont {C.~A.}\ \bibnamefont {Weidner}},
-  \bibinfo {author} {\bibfnamefont {J.~J.}\ \bibnamefont {Sørensen}}, \bibinfo
-  {author} {\bibfnamefont {M.}~\bibnamefont {Mudrich}}, \ and\ \bibinfo
-  {author} {\bibfnamefont {J.~F.}\ \bibnamefont {Sherson}},\ }\href@noop {}
-  {\enquote {\bibinfo {title} {Quantum composer: A programmable quantum
-  visualization and simulation tool for education and research},}\ } (\bibinfo
-  {year} {2020}),\ \Eprint {http://arxiv.org/abs/2006.07263} {arXiv:2006.07263
-  [physics.ed-ph]} \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Donley}\ \emph {et~al.}(2001)\citenamefont {Donley},
   \citenamefont {Claussen}, \citenamefont {Cornish}, \citenamefont {Roberts},
   \citenamefont {Cornell},\ and\ \citenamefont {Wieman}}]{Donley2001}%
@@ -176,4 +177,29 @@
   {\bibinfo {title} {Crowdsourcing human common sense for quantum control},}\ }
   (\bibinfo {year} {2020}),\ \Eprint {http://arxiv.org/abs/2004.03296}
   {arXiv:2004.03296 [quant-ph]} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Dalgaard}(2021)}]{MogensQMMG}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Dalgaard}},\ }\href@noop {} {\enquote {\bibinfo {title} {Magnus expansion,
+  quantum landscapes and uncertainties},}\ }\bibinfo {howpublished} {Group
+  meeting presentation} (\bibinfo {year} {2021}),\ \bibinfo {note} {accessed:
+  2021-1-11}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fornberg}(1988)}]{fornberg1988generation}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {B.}~\bibnamefont
+  {Fornberg}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
+  {Mathematics of computation}\ }\textbf {\bibinfo {volume} {51}},\ \bibinfo
+  {pages} {699} (\bibinfo {year} {1988})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {J\"ager}\ \emph {et~al.}(2014)\citenamefont
+  {J\"ager}, \citenamefont {Reich}, \citenamefont {Goerz}, \citenamefont
+  {Koch},\ and\ \citenamefont {Hohenester}}]{PhysRevA.90.033628}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {J\"ager}}, \bibinfo {author} {\bibfnamefont {D.~M.}\ \bibnamefont {Reich}},
+  \bibinfo {author} {\bibfnamefont {M.~H.}\ \bibnamefont {Goerz}}, \bibinfo
+  {author} {\bibfnamefont {C.~P.}\ \bibnamefont {Koch}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {U.}~\bibnamefont {Hohenester}},\ }\href {\doibase
+  10.1103/PhysRevA.90.033628} {\bibfield  {journal} {\bibinfo  {journal} {Phys.
+  Rev. A}\ }\textbf {\bibinfo {volume} {90}},\ \bibinfo {pages} {033628}
+  (\bibinfo {year} {2014})}\BibitemShut {NoStop}%
 \end{thebibliography}%

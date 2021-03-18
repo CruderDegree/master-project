@@ -3,19 +3,25 @@
 \BOOKMARK [1][-]{section*.3}{Background}{section*.1}% 3
 \BOOKMARK [1][-]{section*.5}{Quantum Composer}{section*.1}% 4
 \BOOKMARK [1][-]{section*.8}{Results}{section*.1}% 5
-\BOOKMARK [2][-]{section*.9}{ Numerical limitations}{section*.8}% 6
+\BOOKMARK [2][-]{section*.9}{Numerical limitations}{section*.8}% 6
 \BOOKMARK [3][-]{section*.10}{Spatial resolution \046 performance}{section*.9}% 7
-\BOOKMARK [3][-]{section*.13}{Eigenvectors \046 eigenvalues}{section*.9}% 8
-\BOOKMARK [2][-]{section*.16}{Harmonic potential optimization}{section*.8}% 9
-\BOOKMARK [2][-]{section*.18}{Unoptimized BEC control in a quartic potential}{section*.8}% 10
-\BOOKMARK [2][-]{section*.21}{Quantum speed limit}{section*.8}% 11
-\BOOKMARK [2][-]{section*.23}{Optimizable lower bound of }{section*.8}% 12
-\BOOKMARK [2][-]{section*.25}{Clustering of solutions}{section*.8}% 13
-\BOOKMARK [2][-]{section*.30}{ Robustness of solutions}{section*.8}% 14
-\BOOKMARK [1][-]{section*.32}{Strategies}{section*.1}% 15
-\BOOKMARK [1][-]{section*.36}{QEngine}{section*.1}% 16
-\BOOKMARK [1][-]{section*.39}{Comparison}{section*.1}% 17
-\BOOKMARK [1][-]{section*.40}{Discussion}{section*.1}% 18
-\BOOKMARK [1][-]{section*.41}{Conclusion}{section*.1}% 19
-\BOOKMARK [1][-]{section*.42}{References}{section*.1}% 20
-\BOOKMARK [1][-]{section*.43}{System parameters}{section*.1}% 21
+\BOOKMARK [3][-]{section*.13}{Spatial limitations of controls}{section*.9}% 8
+\BOOKMARK [3][-]{section*.16}{Eigenstates \046 eigenvalues}{section*.9}% 9
+\BOOKMARK [2][-]{section*.18}{Harmonic potential optimization}{section*.8}% 10
+\BOOKMARK [2][-]{section*.20}{Unoptimized BEC control in a quartic potential}{section*.8}% 11
+\BOOKMARK [2][-]{section*.23}{Quantum speed limit}{section*.8}% 12
+\BOOKMARK [2][-]{section*.25}{Optimizable lower bound of }{section*.8}% 13
+\BOOKMARK [2][-]{section*.27}{Clustering of solutions}{section*.8}% 14
+\BOOKMARK [2][-]{section*.31}{Robustness of solutions}{section*.8}% 15
+\BOOKMARK [1][-]{section*.33}{Strategies}{section*.1}% 16
+\BOOKMARK [1][-]{section*.37}{QEngine}{section*.1}% 17
+\BOOKMARK [2][-]{section*.39}{Clustering of controls}{section*.37}% 18
+\BOOKMARK [2][-]{section*.42}{Landscape exploration}{section*.37}% 19
+\BOOKMARK [1][-]{section*.44}{Comparison}{section*.1}% 20
+\BOOKMARK [1][-]{section*.45}{Discussion}{section*.1}% 21
+\BOOKMARK [1][-]{section*.46}{Conclusion}{section*.1}% 22
+\BOOKMARK [1][-]{section*.47}{References}{section*.1}% 23
+\BOOKMARK [1][-]{section*.48}{System parameters}{section*.1}% 24
+\BOOKMARK [1][-]{section*.49}{QEngine settings}{section*.1}% 25
+\BOOKMARK [2][-]{section*.50}{Clustering}{section*.49}% 26
+\BOOKMARK [2][-]{section*.52}{Landscape}{section*.49}% 27
