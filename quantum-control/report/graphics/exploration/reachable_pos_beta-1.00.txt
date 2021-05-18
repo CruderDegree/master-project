@@ -1,0 +1,9 @@
+Max fidelity with gamma = 1e-6 and control time 1.00 ms, N_iter = 250. Initial guesses 0.0003 and 280e-6
+beta	Fmax
+15	0.994267
+16.5	0.995344
+18	0.990605
+21	0.99116
+24	0.977306
+27	0.981066
+30	0.975975

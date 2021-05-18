@@ -258,7 +258,7 @@ The way the energy spectrum of $\hat{H}_{GPE}$ is calculated is not trivial \cit
 
 Composer was also used to show how the energy levels of the BEC energy eigenstates changed as the self interaction was varied. The energy levels were studied both for a BEC in a quadratic potential (\textit{System A1} in Appendix \ref{App:System-params}) and a quartic potential (\textit{System B1}). Figure \ref{fig:energyLevels} shows the how the energy levels of the 3 lowest energy eigenstates change with self interaction strenght. Below that it shows the energy spacing between these 3 levels for both potentials. 
 
-Firstly note that Composer is only capable of calculating the second excited state with great uncertainty outside a narrow interval around $\beta = 0$. This uncertainty can be reduced slightly by changing inititial parameter guesses in the spectrum generating procedure, but it is not reducible to negligible levels as for the uncertainties of the other states shown. It should also be mentioned that minimization of state variances was only done for the quardratic potential, which presumably explains the lower variances for these states compared to the states in the quartic potential. It is expected that the variance levels of the quartic system can reach similar lower values as the quadratic potential.
+Firstly note that Composer is only capable of calculating the second excited state with great uncertainty outside a narrow interval around $\beta = 0$. This uncertainty can be reduced slightly by changing initial parameter guesses in the spectrum generating procedure, but it is not reducible to negligible levels ($\leq 1$) as for the uncertainties of the other states shown.
 
 It should be noted how the self interaction strength $\beta$ affects the spacing between the energy levels. For non-interacting and repulsive interactions between atoms we see that the spacing is still equally spaced. Due to the uncertainty of the 2nd excited state energy, we are unable to actually conclude if this behavior is true and so we can also say that these results indicate that the equal spacing also holds for repulsive BECs. This is not the case for BECs with attractive self interaction, where the energy spacing between the 2 lowest states rapidly increases compared to the spacing between the 2 highest states. This increase in spacing is so large that it even surpasses the considerable uncertainty of the difference between 1st and 2nd excited state. \\
 
@@ -319,16 +319,21 @@ It was attempted to estimate the Quantum Speed Limit for this control problem an
 	\label{fig:QSL}
 \end{figure}
 
-\subsection{Optimizable lower bound of $\beta$}\label{subsec:optimizable-lower-bound-composer}
+\subsection{Optimizable boundaries of the BEC self interaction}\label{subsec:optimizable-boundaries-of-beta}
 
 It is clear after having explored the behavior of BECs in different numerical setups that the behavior the BECs are not symmetric with respect to $\beta$. This is not unexpected, since the sign of $\beta$ constitutes whether the atom-atom interaction happening inside the BEC is repulsive($\beta>0$) or attractive ($\beta<0$) and so it would not be unjustified to say that the sign of $\beta$ describe entirely different species of bosons. Since attractive BECs have proven difficult to optimize on for $\beta<-5$, it was explored what the lower limit of $\beta$ would be with respect to reaching an optimizable fidelity of at least $0.99$. The results of this exploration is seen in Fig. \ref{fig:reachable_neg_betas}, where it can be seen that for values of $\beta<-10$ it is no longer possible to reach $F\geq0.99$. While this lower bound could be seen as a numerical limitation of Composer as discussed in Sec. \ref{subsec:numericalLimitations}, it is also relevant to consider that there exists a lower bound for how attractive a BEC can be before the atoms collapse in on themselves in a process known as a Bose-Nova \cite{Donley2001}.
-%TODO Is there an upper bound on this as well? Around beta = 25?
-%TODO Does this hold when the variance is re-adjusted?
+
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{graphics/exploration/reachable_neg_beta.pdf}
 	\caption{Lowest reachable infidelities as a function of interatomic attraction $\beta$, shown for different timescales. It seems that $\beta=-10$ is the lower limit for reaching optimizable solutions $F\geq0.99$. This lower limit is, however, suspected to be caused by numerical inaccuracies. The red line marks where the fidelity of a control is $0.99$.}
 	\label{fig:reachable_neg_betas}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{graphics/exploration/Reachable_Positive_betas.pdf}
+	\caption{Similarly it is found that there is an upper bound to the self interaction strength, beyond which it is not possible to optimize beyond $\mathcal{F} \geq 0.99$. This upper bound seems to be inversely proportional to the control duration, as the results shown here suggests.}
+	\label{fig:reachable_pos_betas}
 \end{figure}
 
 \subsection{Clustering of solutions}\label{subsec:composer-clustering}
@@ -405,6 +410,8 @@ The results can be seen in Fig. \ref{fig:robustness}. There seems to be an overa
 
 
 \section{Strategies}\label{sec:strats}
+%TODO Nævn evt noget om seeding strategy hvis det der står ikke er godt nok
+%TODO Nævn et sted heri, at man i sin seeding strategy kan vælge enten at lave et kvalificeret gæt som er 'svært' at afvige fra (vilde bevægelser) eller et kvalificeret gæt som er vagt og derigennem kan man lade optimizeren føre det i den retning som er bedst. Her kan man evt. vise hvad der menes med et par figurer, hvor det ene seed er tæt på optimal løsning og det andet er ganske langt fra.
 % Function vs graph approach
 Throughout working with this project, there has been two ways to determine the control function $u(t)$ in Composer: The control function is determined either by an analytical expression (using the Scalar expression node) or it is made by dragging the desired ``path'' of displacement on a graph (using the Control node). These different nodes are shown in Fig. \ref{fig:Controls}. One can use both of these approaches when working with quantum control and they both have their advantages and disadvantages. \\
 
@@ -569,6 +576,61 @@ The resulting controls with $\mathcal{F}(u) \geq 0.1$ were kept for further anal
 	\label{fig:qengine-landscape}
 \end{figure}
 
+\subsection{Seeding strategies}\label{subsec:qengine-seeding-strats}
+%TODO This section should contain some of my thought for generating seeds that exhaust ctrl. space
+%TODO Seeding strat cant be completely simple, because of the way seeds looked in QM2 shakeup, this could serve as a method for generating seeds in composer
+This subsection will attempt to expand upon the lack of ``control landscape'' exploration mentioned in Sec. \ref{subsec:qengine-landscape-expl}. The goal will be to formulate a strategy that is able to ``globally'' point to a region in the control space that can then be locally explored using pseudo-randomly generated numbers for the specific controls.
+
+The seeding strategy $U$ is computed in the following way
+\begin{equation}
+	U = S \times A (T_s - D)
+	\label{eq:seeding-strategy-formalism}
+\end{equation}
+where $S$ is a scaling factor that can be used to bound controls within an interval of values, $A$ is the amplification strategy, which will amplify a certain region of the control e.g. points near the halfway point, $T_s$ is the \textit{term strategy} which denotes the number of and type of terms the control consists of. This could for instance be 4 cosine terms of increasing frequency $\sum_k \cos(k \pi t/T)$. Finally $D$ is the \textit{displacement} which can be used to ensure certain boundary conditions such as $u(0)=u(T)=0$.
+
+Once the strategy for calculating $U$ is in place, it is time to generate candidate strategies for further analysis. This was done by formulating sub strategies for each of the components in Eq. \eqref{eq:seeding-strategy-formalism} save for the scaling $S$, which was set to $1$ in all cases. These potential sub strategies are listed below.
+
+\begin{itemize}
+	\item[$A$] \textbf{- Amplification}
+	\item \textit{Middle} - Scales the control around the midpoint $u(\frac{T}{2})$ by a factor of 3 with the $2\sin(\pi t/T) + 1$ while leaving endpoints the same.
+	\item \textit{Endpoints} - Scales to control around the endpoints by a factor of 3 while leaving the middle untouched using $\cos(2 \pi t/T) + 2$.
+\end{itemize}
+
+%TODO Skriv om til matematisk udtryk i stedet?
+\begin{itemize}
+	\item[$T_s$] \textbf{- Term structure}
+	\item \textit{Altcos} - \\ $\cos(r 2\pi t/T) + \sin(2r \pi t/T) + \cos(3 r 2\pi t/T) + \cdots$
+	\item \textit{Altsin} - Similar to \textit{Altcos}. Alternates between sine and cosine terms starting with sine.
+	\item \textit{Both} - $\sum_k \cos(2rk\pi t/T) + \sin(rk\pi t/T)$.
+	\item \textit{Cos} - $\sum_k \cos(2rk\pi t/T)$.
+	\item \textit{Sin} - $\sum_k \sin(rk\pi t/T)$
+\end{itemize}
+
+\begin{itemize}
+	\item[$D$] \textbf{- Displacement strategy}
+	\item \textit{Cosine} - Each term will be displaced to ensure the condition $u(0) = 0$.
+	\item \textit{Frequency} - Instead of the frequency being $rk\pi t/T$ where $r\in[-1,1]$ is a randomly generated number, it will instead be set to $1$.
+	\item \textit{Both} - Here both the cosine strategy and the frequency strategy will be used. This ensures the condition $u(0) = u(T) = 0$. 
+\end{itemize}
+
+Each combination of the above listed strategies had 25 of their controls plotted. After going through each strategy, 6 were chosen to be tested on the Quantum Moves 2 Shakeup problem. At each of the 9 control durations, 20 controls were generated using each strategy and optimized for up to $1000$ iterations using \proc{Grape}. Other optimization parameters used was $\gamma = \num{e-5}$ and $\sigma = \num{2e3}$ with boundaries $\pm\SI{2}{\micro\meter}$. These 6 were selected based on the controls resembling what could be made in Quantum Composer using the graph node described in Sec. \ref{sec:strats}. 
+
+The chosen strategies are referred to in the form \textit{$T_s$-A-D-n} with $n$ being the number of terms. Their performance is plotted in Fig. \ref{fig:qengine-seeding-strats}, where both the best performing control and the first through third quartiles are shown for each strategy. Up to a control duration of \SI{0.75}{\ms} the strategies have similar performance and little spread. After passing \SI{1}{\ms} there is an increase in the spread of the strategy quartiles. The same thing is seen for the best controls. 
+
+Note that no strategy using the \textit{sine} and \textit{altsin} term strategies were used. This is because these particular term strategies produced solutions that were all very similar to each other in terms of shape, unlike the other strategies.
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{graphics/strategies/seeding_strats_results/quantiles.pdf}
+	\caption{Performance of 6 chosen strategies. The median (solid line) and upper/lower quantiles (shaded area) of the 20 controls for each strategy are drawn. The best solution for each strategy is marked by an X. 2 strategies stand out in a positive way. The first one is 'cos-mid-cos-3' found the best overall solution in 6 out of 9 control durations. The second one is 'altcos-end-both-4' which has the overall best performing median of the tested strategies.}
+	\label{fig:qengine-seeding-strats}
+\end{figure}
+
+Overall it seems that this method of generating seeds can work as a way of exploring the fidelity landscape of the Shakeup problem. Comparing the found results to those obtained in Fig. \ref{fig:QEngine_noise}, we see that while the estimated QSL using these strategies is around \SI{0.85}{\ms} compared to around \SI{0.65}{\ms}, the solutions generated without the random noise seem to make up more ``optimizer-friendly'' seeds that are generally capable of reaching at least $\mathcal{F}\geq 0.8$ compared to those generated with random noise where many do not even reach this level. The strategies also keep up or outperform the optimized controls that were found in Composer, indicating that for anything but superficial exploration some kind of systematic seed generation method is necessary. This method could potentially be implemented in Composer as an expansion of the function node and with a new node generating random numbers. This would open up the possibility of doing much of the work that currently requires the QEngine (expert) tool instead of a simpler and more widely available tool.
+%TODO Check up of whether the solutions generated here are more jittery like those from the clustering part.
+
+\subsection{Optimal control analysis}
+%TODO This section should be about the optimal controls that reach benchmark and an analysis of these
+
 \section{Comparison}\label{sec:comparison}
 As has been demonstrated, QEngine offers several advantages to Quantum Composer with respect to flexibility and computational power. However, this does not mean that the QEngine should be used for every problem. Quantum Composer makes it very easy to set up a desired system, run a simulation on that system and get the system plotted as the system evolves. This makes it preferable to use Composer when one wants to visually and (more or less) playfully explore the behavior of a system as the different parameters are tuned up or down.
 
@@ -673,7 +735,6 @@ Furthermore, a list of desirable additions to Quantum Composer has been added. T
 Finally, there are aspects of this work that would interesting to continue to explore and research. These include:
 \begin{itemize}
 	\item Test if the harmonic potential is capable of reaching higher fidelities in the time domain around $T \sim 1$, as this was demonstrated to be near the QSL for the quartic potential.
-	\item Find out if there is an upper limit to the self interaction strength similarly to what was found in Sec. \ref{subsec:optimizable-lower-bound-composer}.
 	\item Further explorations of the possible seeding strategies in the QEngine in order to develop a more exhaustive search of the control space.
 	\item An analysis of successful ($\mathcal{F} \geq 0.99$) controls in an attempt to distinguish patterns, phases of common / different behaviors, etc.
 \end{itemize}
